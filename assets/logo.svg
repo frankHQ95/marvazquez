@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Mar Vazquez Finanzas">
+  <defs>
+    <linearGradient id="mvGrad" x1="5" y1="3" x2="43" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset=".55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="mvGloss" x1="24" y1="2" x2="24" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="url(#mvGrad)"/>
+  <rect x="1.5" y="1.5" width="45" height="45" rx="13" fill="url(#mvGloss)"/>
+  <path d="M13.5 34.5 V18 L24 27 L34.5 14 V34.5" fill="none" stroke="#ffffff"
+        stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="34.5" cy="14" r="3.1" fill="#ffffff"/>
+</svg>
