@@ -1,0 +1,2751 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Allianz OptiMaxx Plus — Plan Personal de Retiro | Mar Vazquez Finanzas</title>
+  <meta name="description" content="Conoce Allianz OptiMaxx Plus, el Plan Personal de Retiro con beneficios fiscales y crecimiento a largo plazo. Mar Vazquez Finanzas — Distribuidor autorizado Allianz México." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+  <meta property="og:title" content="Allianz OptiMaxx Plus — Plan Personal de Retiro | Mar Vazquez Finanzas" />
+  <meta property="og:description" content="Planeación patrimonial de largo plazo con respaldo institucional. Agenda tu asesoría sin costo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://asesoriaconestrategia.com/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.11.4/bundle/libphonenumber-max.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+  <style>
+    /* ══════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      background: #ffffff;
+      color: #1e293b;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+    h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
+
+    /* ══════════════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════════════ */
+    :root {
+      --blue: #0033a0;
+      --blue-mid: #1d4ed8;
+      --blue-light: #3b82f6;
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-200: #bfdbfe;
+      --gold: #f59e0b;
+      --gold-dark: #d97706;
+      --green: #10b981;
+      --red: #ef4444;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-700: #334155;
+      --slate-900: #0f172a;
+      --max-w: 1200px;
+      --gutter: clamp(16px, 4vw, 32px);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.15);
+    }
+
+    /* ══════════════════════════════════════════
+       LAYOUT
+    ══════════════════════════════════════════ */
+    .container {
+      width: min(var(--max-w), 100% - var(--gutter) * 2);
+      margin-inline: auto;
+    }
+
+    /* ══════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--slate-200);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+
+    .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+    .brand-text { display: grid; gap: 1px; }
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--slate-500);
+      font-weight: 500;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(16,185,129,0.30);
+      transition: filter 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+    .header-cta:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(16,185,129,0.40); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f0fdf9 100%);
+      padding: 64px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230033a0' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: start;
+      position: relative;
+    }
+
+    .hero-copy { display: grid; gap: 22px; }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      width: fit-content;
+    }
+
+    .hero-tag-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      color: var(--slate-900);
+      line-height: 1.1;
+    }
+
+    .hero-title-accent { color: var(--blue); }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--slate-500);
+      max-width: 52ch;
+    }
+
+    .hero-req {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 18px;
+      background: #fff;
+      border: 1px solid var(--blue-200);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      color: var(--slate-700);
+    }
+
+    .hero-req svg { flex-shrink: 0; margin-top: 2px; color: var(--blue); }
+
+    .hero-bullets {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .hero-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--slate-700);
+      font-weight: 500;
+    }
+
+    .hero-bullets li::before {
+      content: "";
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-size: 12px 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--slate-200);
+      overflow: hidden;
+    }
+
+    .form-card-header {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a56db 100%);
+      padding: 22px 24px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .form-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #fff;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+
+    .form-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .form-card-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      font-style: italic;
+    }
+
+    .form-body { padding: 24px; display: grid; gap: 16px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field { display: grid; gap: 5px; }
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      height: 46px;
+      padding: 0 14px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 10px;
+      background: var(--slate-50);
+      color: var(--slate-900);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,51,160,0.10);
+      background: #fff;
+    }
+
+    .field input::placeholder { color: var(--slate-400); }
+    .field select option { color: #1e293b; background: #fff; }
+
+    .phone-wrap {
+      display: flex;
+      gap: 0;
+    }
+
+    .phone-wrap select {
+      width: 88px;
+      flex-shrink: 0;
+      border-radius: 10px 0 0 10px;
+      border-right: none;
+    }
+
+    .phone-wrap input {
+      border-radius: 0 10px 10px 0;
+      flex: 1;
+    }
+
+    .phone-wrap select:focus,
+    .phone-wrap input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,51,160,0.10);
+      background: #fff;
+      z-index: 1;
+      position: relative;
+    }
+
+    .form-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 11px 14px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: 10px;
+      font-size: 0.78rem;
+      color: var(--blue);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .form-notice svg { flex-shrink: 0; margin-top: 1px; }
+
+    .btn-submit {
+      width: 100%;
+      height: 52px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: filter 0.18s, transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 8px 24px rgba(16,185,129,0.30);
+    }
+
+    .btn-submit:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 12px 32px rgba(16,185,129,0.40); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--slate-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .form-success {
+      display: none;
+      gap: 14px;
+      padding: 20px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .form-success.is-visible { display: grid; }
+
+    .form-success-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--green);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-success h3 { font-size: 1.1rem; font-weight: 700; color: #065f46; }
+    .form-success p { font-size: 0.88rem; color: #047857; }
+
+    .success-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px; border-radius: 10px;
+      background: #25d366; color: #fff;
+      font-weight: 600; font-size: 0.9rem;
+      transition: filter 0.18s;
+    }
+    .btn-wa:hover { filter: brightness(1.08); text-decoration: none; }
+
+    .btn-outline {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px; border-radius: 10px;
+      border: 1.5px solid var(--slate-300);
+      color: var(--slate-700); background: #fff;
+      font-weight: 600; font-size: 0.88rem;
+      transition: background 0.18s;
+    }
+    .btn-outline:hover { background: var(--slate-50); text-decoration: none; }
+
+    .form-error {
+      display: none;
+      padding: 10px 14px;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 10px;
+      color: #b91c1c;
+      font-size: 0.84rem;
+    }
+    .form-error.is-visible { display: block; }
+
+    /* ══════════════════════════════════════════
+       STATS BAR
+    ══════════════════════════════════════════ */
+    .stats {
+      background: var(--blue);
+      padding: 28px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide: none;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 12px 16px;
+      border-right: 1px solid rgba(255,255,255,0.18);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-value {
+      display: block;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.72);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION COMMONS
+    ══════════════════════════════════════════ */
+    .section { padding: 72px 0; }
+    .section-alt { background: var(--slate-50); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-200);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 800;
+      color: var(--slate-900);
+      line-height: 1.1;
+    }
+
+    .section-title-accent { color: var(--blue); }
+
+    .section-lead {
+      font-size: 1rem;
+      color: var(--slate-500);
+      max-width: 60ch;
+      margin-top: 10px;
+    }
+
+    .section-head { margin-bottom: 40px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-lead { margin-inline: auto; }
+
+    /* ══════════════════════════════════════════
+       FEATURES / WHY CARDS
+    ══════════════════════════════════════════ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--blue-200);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      width: 50px; height: 50px;
+      border-radius: 14px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+
+    .card-icon svg { width: 24px; height: 24px; }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.25;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--slate-500);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       PROBLEM / SOLUTION
+    ══════════════════════════════════════════ */
+    .prob-sol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .prob-panel, .sol-panel {
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .prob-panel {
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+    }
+
+    .sol-panel {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a56db 100%);
+      color: #fff;
+    }
+
+    .prob-panel h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #991b1b;
+    }
+
+    .sol-panel h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .prob-list, .sol-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .prob-list li, .sol-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .prob-list li { color: #7f1d1d; }
+    .sol-list li { color: rgba(255,255,255,0.88); }
+
+    .prob-list li::before {
+      content: "✗";
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--red);
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .sol-list li::before {
+      content: "✓";
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #6ee7b7;
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       COMPARE TABLE
+    ══════════════════════════════════════════ */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    thead th {
+      padding: 14px 16px;
+      background: var(--slate-50);
+      border-bottom: 2px solid var(--slate-200);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--slate-700);
+    }
+
+    thead th:first-child { text-align: left; min-width: 180px; }
+
+    thead th.is-featured {
+      background: var(--blue-50);
+      color: var(--blue);
+      border-bottom-color: var(--blue-200);
+    }
+
+    .plan-logo-wrap {
+      background: #fff;
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      min-height: 34px;
+      margin: 0 auto 4px;
+      border: 1px solid var(--slate-200);
+    }
+
+    .plan-logo-wrap img { max-height: 22px; max-width: 80px; object-fit: contain; }
+
+    .plan-name { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 2px; }
+
+    tbody tr { border-bottom: 1px solid var(--slate-100); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--slate-50); }
+
+    tbody td {
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      text-align: center;
+      color: var(--slate-600);
+    }
+
+    tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    td.is-featured {
+      background: rgba(0,51,160,0.025);
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    .check-yes { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+    .check-no  { color: var(--slate-300); font-weight: 700; font-size: 1.1rem; }
+    .check-best { color: var(--blue); font-weight: 700; }
+    .table-note {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--slate-400);
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════════
+       PROCESS STEPS
+    ══════════════════════════════════════════ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: calc(16.67% + 16px);
+      right: calc(16.67% + 16px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue-200), var(--blue-200));
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      text-align: center;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--blue-200);
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--slate-500);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       CALCULATOR
+    ══════════════════════════════════════════ */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .calc-panel {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 22px;
+    }
+
+    .calc-panel h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .calc-panel p.lead { font-size: 0.9rem; color: var(--slate-500); }
+
+    .calc-row { display: grid; gap: 6px; }
+    .calc-row-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .calc-row-header label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--slate-700);
+    }
+
+    .calc-row-header span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--blue-200);
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 2px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,51,160,0.3);
+      cursor: pointer;
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--slate-400);
+      margin-top: 2px;
+    }
+
+    .rate-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .rate-btn {
+      flex: 1;
+      padding: 9px 6px;
+      border-radius: 8px;
+      border: 1.5px solid var(--slate-200);
+      background: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.16s;
+    }
+
+    .rate-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .tax-btns { display: flex; gap: 8px; }
+
+    .tax-btn {
+      flex: 1;
+      padding: 9px 6px;
+      border-radius: 8px;
+      border: 1.5px solid var(--slate-200);
+      background: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--slate-600);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.16s;
+    }
+
+    .tax-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    /* Result panel */
+    .result-panel {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a56db 100%);
+      border-radius: var(--radius-xl);
+      padding: 32px 28px;
+      display: grid;
+      gap: 18px;
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 90px;
+    }
+
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      width: fit-content;
+    }
+
+    .result-panel h3 { font-size: 1.05rem; font-weight: 700; opacity: 0.88; }
+
+    .result-big {
+      display: grid;
+      gap: 4px;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .result-big-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+    }
+
+    .result-big-value {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .result-big-sub {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 2px;
+    }
+
+    .result-rows { display: grid; gap: 10px; }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.86rem;
+    }
+
+    .result-row span:first-child { color: rgba(255,255,255,0.65); }
+    .result-row strong { color: #fff; font-weight: 700; }
+
+    .result-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.40);
+      line-height: 1.5;
+    }
+
+    .result-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255,255,255,0.28);
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .result-cta:hover { background: rgba(255,255,255,0.26); text-decoration: none; }
+
+    /* ══════════════════════════════════════════
+       ALLIANZ TRUST / INSTITUTIONAL SECTION
+    ══════════════════════════════════════════ */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .trust-copy { display: grid; gap: 18px; }
+
+    .trust-copy p {
+      font-size: 0.95rem;
+      color: var(--slate-500);
+      line-height: 1.7;
+    }
+
+    .trust-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .trust-stat {
+      padding: 18px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      display: grid;
+      gap: 4px;
+    }
+
+    .trust-stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .trust-stat-label {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+    }
+
+    .trust-image-area {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      display: grid;
+      place-items: center;
+      gap: 16px;
+      min-height: 300px;
+    }
+
+    .trust-image-area img {
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .allianz-logo-large {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--blue);
+      letter-spacing: -0.04em;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .stars span { color: var(--gold); font-size: 0.95rem; }
+
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--slate-600);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-100);
+    }
+
+    .author-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--slate-800);
+      line-height: 1.2;
+    }
+
+    .author-role {
+      font-size: 0.75rem;
+      color: var(--slate-400);
+    }
+
+    /* ══════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    details.faq-item {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 48px 18px 20px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--slate-800);
+      position: relative;
+      user-select: none;
+      transition: background 0.16s;
+    }
+
+    details.faq-item summary::-webkit-details-marker { display: none; }
+
+    details.faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      color: var(--blue);
+      line-height: 1;
+      transition: transform 0.18s;
+    }
+
+    details.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    details.faq-item summary:hover { background: var(--slate-50); }
+
+    .faq-body {
+      padding: 0 20px 18px;
+      font-size: 0.88rem;
+      color: var(--slate-500);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════
+       CTA BANNER
+    ══════════════════════════════════════════ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a56db 60%, #0284c7 100%);
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      max-width: 20ch;
+      margin: 0 auto 14px;
+      line-height: 1.15;
+    }
+
+    .cta-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 50ch;
+      margin: 0 auto 28px;
+    }
+
+    .btn-cta-big {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border-radius: 14px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(16,185,129,0.38);
+      transition: filter 0.18s, transform 0.18s;
+    }
+    .btn-cta-big:hover { filter: brightness(1.06); transform: translateY(-2px); text-decoration: none; }
+
+    .cta-trust {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer {
+      background: var(--slate-900);
+      padding: 40px 0 28px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.84rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+    .footer-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.40);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
+      transition: color 0.16s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.78); text-decoration: none; }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ══════════════════════════════════════════
+       WHATSAPP FLOAT
+    ══════════════════════════════════════════ */
+    .wa-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px 11px 14px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.40);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: transform 0.18s, box-shadow 0.18s;
+      text-decoration: none;
+    }
+    .wa-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.50);
+      text-decoration: none;
+    }
+
+    /* ══════════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid  { grid-template-columns: 1fr; }
+      .calc-grid   { grid-template-columns: 1fr; }
+      .result-panel { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 48px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.18); }
+      .stat-item:last-child, .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+      .prob-sol   { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .faq-grid   { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .section { padding: 52px 0; }
+      .header-badge { display: none; }
+    }
+
+    /* ── PHONE VALIDATION INDICATOR ── */
+    .phone-status {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      margin-top: 5px;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+    .phone-status.is-valid   { display: flex; color: #059669; }
+    .phone-status.is-invalid { display: flex; color: #dc2626; }
+    .phone-status.is-loading { display: flex; color: var(--slate-400); font-weight: 500; }
+    .phone-status svg { flex-shrink: 0; }
+
+    .phone-wrap.is-valid  input { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.12); }
+    .phone-wrap.is-invalid input { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+
+    @media (max-width: 480px) {
+      .field-row { grid-template-columns: 1fr; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 13px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .trust-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════════
+       MOBILE — 640px y menos
+    ══════════════════════════════════════════ */
+    @media (max-width: 640px) {
+
+      /* Header */
+      .header-inner { padding: 10px 0; gap: 8px; }
+      .header-cta { font-size: 0.8rem; padding: 8px 14px; }
+      .brand img { height: 32px; }
+
+      /* Hero */
+      .hero { padding: 36px 0 44px; }
+      .hero-title { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+      .hero-lead { font-size: 0.95rem; }
+      .hero-req { font-size: 0.82rem; }
+      .hero-bullets li { font-size: 0.85rem; }
+      .hero-grid { gap: 28px; }
+
+      /* Form card */
+      .form-card-header { padding: 18px 18px 14px; }
+      .form-card-title { font-size: 1.05rem; }
+      .form-body { padding: 18px; gap: 14px; }
+      .form-btn { font-size: 0.92rem; padding: 14px; }
+
+      /* Stats bar */
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+      .stat-value { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+
+      /* Section titles */
+      .section-title { font-size: clamp(1.5rem, 5.5vw, 2rem); }
+      .section { padding: 40px 0; }
+
+      /* Cards / benefits */
+      .cards-grid { grid-template-columns: 1fr; gap: 14px; }
+      .card { padding: 18px; }
+
+      /* Problem/solution */
+      .prob-sol { gap: 16px; }
+      .prob-col, .sol-col { padding: 20px; }
+
+      /* Steps */
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .step { padding: 18px; }
+
+      /* Comparison table */
+      table { min-width: 560px; font-size: 0.78rem; }
+      thead th, tbody td { padding: 10px 10px; }
+      thead th:first-child { min-width: 130px; }
+
+      /* Calculator */
+      .calc-panel { padding: 20px 16px; }
+      .calc-panel h3 { font-size: 1.1rem; }
+      .result-panel { padding: 20px 16px; }
+      .result-big { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+
+      /* Testimonials */
+      .testimonials-grid { gap: 14px; }
+      .testi-card { padding: 18px; }
+
+      /* Trust section */
+      .trust-grid { gap: 16px; }
+      .trust-item { padding: 18px; }
+
+      /* FAQ */
+      .faq-grid { gap: 10px; }
+      summary { font-size: 0.88rem; padding: 14px 16px; }
+      .faq-body { font-size: 0.84rem; padding: 0 16px 14px; }
+
+      /* Footer */
+      .footer-inner { gap: 12px; text-align: center; }
+      .footer-brand { justify-content: center; }
+
+      /* Phone lada select */
+      .phone-row { flex-wrap: nowrap; }
+      #ppr_lada { min-width: 80px; max-width: 90px; font-size: 0.82rem; }
+
+      /* Income warning */
+      .income-warning { font-size: 0.8rem; }
+
+      /* WhatsApp float */
+      .wa-float { bottom: 14px; right: 14px; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '25336372275973357');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=25336372275973357&ev=PageView&noscript=1" alt="" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- ══ HEADER ══ -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#formulario" aria-label="Mar Vazquez Finanzas — Plan Personal de Retiro">
+          <div class="brand-logo">
+            <img src="assets/logo.svg" alt="Mar Vazquez Finanzas" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Mar Vazquez Finanzas</span>
+            <span class="brand-sub">Plan Personal de Retiro</span>
+          </div>
+        </a>
+
+        <div class="header-badge">
+          <img src="assets/partners/allianz-distribuidor-autorizado.png" alt="Allianz distribuidor autorizado" style="height:40px;width:auto;vertical-align:middle;">
+        </div>
+
+        <a class="header-cta" href="#formulario">Calcula tu retiro →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Copy -->
+          <div class="hero-copy" data-reveal>
+            <span class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              Allianz OptiMaxx Plus · PPR
+            </span>
+
+            <h1 class="hero-title">
+              Tu retiro puede generar<br>
+              <span class="hero-title-accent">más de $14,000,000 MXN.</span>
+            </h1>
+
+            <p class="hero-lead">
+              Planeación patrimonial de largo plazo con beneficios fiscales potenciales. Con Mar Vazquez Finanzas diseñamos el escenario que más te conviene.
+            </p>
+
+            <div class="hero-req">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span><strong>Indispensable:</strong> Ser mayor de 18 años con ingresos superiores a $15,000 MXN mensuales.</span>
+            </div>
+
+            <ul class="hero-bullets">
+              <li>Ahorro e inversión con respaldo institucional Allianz</li>
+              <li>Posibles beneficios fiscales conforme a la legislación (Art. 151 LISR)</li>
+              <li>Bono de hasta 12 meses de aportación</li>
+              <li>Rendimiento promedio referencial de 13% anual</li>
+              <li>Asesoría personalizada sin costo y sin compromiso</li>
+            </ul>
+          </div>
+
+          <!-- Form -->
+          <div id="formulario" data-reveal style="transition-delay:0.12s">
+            <div class="form-card">
+              <div class="form-card-header">
+                <span class="form-card-tag">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Asesoría informativa sin costo
+                </span>
+                <h2 class="form-card-title">Agenda una asesoría con una proyección personalizada</h2>
+                <p class="form-card-sub">Llena el formulario — te contactamos por WhatsApp con tu proyección.</p>
+              </div>
+
+              <div class="form-body">
+                <form id="leadForm" novalidate>
+                  <div class="field-row">
+
+                    <!-- Nombre -->
+                    <div class="field full">
+                      <label for="ppr_name">Nombre completo</label>
+                      <input
+                        id="ppr_name"
+                        name="nombre"
+                        type="text"
+                        placeholder="Ej. Paco Higuera"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+
+                    <!-- Email -->
+                    <div class="field full">
+                      <label for="ppr_email">Email</label>
+                      <input
+                        id="ppr_email"
+                        name="email"
+                        type="email"
+                        placeholder="correo@ejemplo.com"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+
+                    <!-- Edad -->
+                    <div class="field">
+                      <label for="ppr_edad">Edad</label>
+                      <input
+                        id="ppr_edad"
+                        name="edad"
+                        type="number"
+                        min="18"
+                        max="55"
+                        placeholder="35"
+                        required
+                      />
+                      <div id="ageWarning" aria-live="polite" style="display:none; align-items:flex-start; gap:7px; margin-top:6px; padding:10px 12px; border-radius:9px; font-size:0.76rem; font-weight:600; line-height:1.45;"></div>
+                    </div>
+
+                    <!-- Profesión -->
+                    <div class="field">
+                      <label for="ppr_profesion">Profesión</label>
+                      <input
+                        id="ppr_profesion"
+                        name="profesion"
+                        type="text"
+                        placeholder="Escribe tu profesión"
+                        required
+                      />
+                    </div>
+
+                    <!-- Teléfono WhatsApp -->
+                    <div class="field full">
+                      <label for="ppr_tel">Teléfono (WhatsApp)</label>
+                      <p style="font-size:0.74rem;color:var(--slate-400);margin-bottom:5px;">La cotización solo se enviará por WhatsApp</p>
+                      <div class="phone-wrap">
+                        <select name="lada" id="ppr_lada" aria-label="Código de país">
+                          <option value="+52" selected>+52</option>
+                          <option value="+1">+1</option>
+                        </select>
+                        <input
+                          id="ppr_tel"
+                          name="telefono"
+                          type="tel"
+                          inputmode="tel"
+                          placeholder="55 1234 5678"
+                          autocomplete="tel"
+                          required
+                        />
+                      </div>
+                      <div class="phone-status" id="phoneStatus" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Inversión mensual -->
+                    <div class="field">
+                      <label for="ppr_inversion">Inversión mensual estimada</label>
+                      <select id="ppr_inversion" name="inversion_mensual" required>
+                        <option value="" disabled selected>Selecciona monto</option>
+                        <option value="$2,000">$2,000</option>
+                        <option value="$3,000">$3,000</option>
+                        <option value="$4,000">$4,000</option>
+                        <option value="$5,000">$5,000</option>
+                        <option value="$6,000">$6,000</option>
+                        <option value="$7,000">$7,000</option>
+                        <option value="$8,000">$8,000</option>
+                        <option value="$9,000">$9,000</option>
+                        <option value="$10,000">$10,000</option>
+                      </select>
+                    </div>
+
+                    <!-- Ingresos mensuales -->
+                    <div class="field" id="ingresosField">
+                      <label for="ppr_ingresos">Ingresos mensuales</label>
+                      <select id="ppr_ingresos" name="ingresos_mensuales" required>
+                        <option value="" disabled selected>Selecciona ingresos</option>
+                        <option value="menos de $10,000">Menos de $10,000 MXN</option>
+                        <option value="$11,000 a $20,000">Entre $11,000 a $20,000 MXN</option>
+                        <option value="$21,000 a $30,000">Entre $21,000 a $30,000 MXN</option>
+                        <option value="$31,000 a $40,000">Entre $31,000 a $40,000 MXN</option>
+                        <option value="más de $41,000">Más de $41,000 MXN</option>
+                      </select>
+                      <div class="income-warning" id="incomeWarning" aria-live="polite" style="display:none; align-items:flex-start; gap:7px; margin-top:6px; padding:10px 12px; background:#fef2f2; border:1px solid #fca5a5; border-radius:9px; font-size:0.76rem; font-weight:600; color:#b91c1c; line-height:1.45;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        Lamentablemente, este tipo de planes requiere ingresos mayores a $15,000 MXN mensuales.
+                      </div>
+                    </div>
+
+                  </div><!-- /.field-row -->
+
+                  <div style="margin-top:14px; display:grid; gap:12px;">
+                    <div class="form-notice">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      <span>Tus datos están protegidos. Sin spam. Sin compromiso.</span>
+                    </div>
+
+                    <div class="form-error" id="formError"></div>
+
+                    <div class="form-success" id="formSuccess">
+                      <div class="form-success-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <h3>¡Solicitud recibida!</h3>
+                      <p>Te contactaremos por WhatsApp con tu proyección personalizada.</p>
+                      <div class="success-btns">
+                        <a class="btn-wa" href="https://wa.me/525561307667?text=Hola%2C+quiero+saber+más+sobre+el+Plan+Personal+de+Retiro+Allianz" target="_blank" rel="noopener noreferrer">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                          Continuar por WhatsApp
+                        </a>
+                        <a class="btn-outline" href="https://ia.grupopowing.com/agenda/francisco-higuera-quintero/cita-inicial" target="_blank" rel="noopener noreferrer">
+                          Agendar asesoría →
+                        </a>
+                      </div>
+                    </div>
+
+                    <button class="btn-submit" type="submit" id="pprSubmitBtn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                      Calcula tu Retiro
+                    </button>
+
+                    <p class="form-disclaimer">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                      Tus datos están seguros. No compartimos tu información.
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STATS BAR ══ -->
+    <div class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value">+5</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">+500</span>
+            <span class="stat-label">Clientes atendidos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">13%</span>
+            <span class="stat-label">Rendimiento prom. anual (ref.)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">$2,000</span>
+            <span class="stat-label">Aportación mínima mensual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FEATURES ══ -->
+    <section class="section" id="beneficios" aria-label="Atributos del plan">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Atributos clave</span>
+          <h2 class="section-title">¿Por qué evaluar<br><span class="section-title-accent">Allianz OptiMaxx Plus?</span></h2>
+          <p class="section-lead">Un plan de largo plazo diseñado para quienes quieren construir patrimonio de forma inteligente.</p>
+        </div>
+        <div class="cards-grid" data-reveal>
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3>Eficiencia fiscal</h3>
+            <p>Aportaciones con potencial deducción de impuestos conforme a los artículos 93°, 151° y 185° de la LISR.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <h3>Crecimiento a largo plazo</h3>
+            <p>Inversión en fondos diversificados con exposición al mercado de valores de EE. UU. y opciones globales.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Respaldo institucional</h3>
+            <p>Allianz es una de las aseguradoras más reconocidas a nivel global, con supervisión de la CNSF en México.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Flexibilidad desde el mes 19</h3>
+            <p>Opciones de descanso de aportaciones, retiros parciales desde $10,000 y ajuste de monto de inversión.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROBLEM / SOLUTION ══ -->
+    <section class="section section-alt" id="problema" aria-label="El reto del retiro">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">El reto</span>
+          <h2 class="section-title">Dejar el retiro al azar<br><span class="section-title-accent">tiene un costo muy alto</span></h2>
+        </div>
+        <div class="prob-sol" data-reveal>
+          <div class="prob-panel">
+            <h3>❌ Sin plan de retiro</h3>
+            <ul class="prob-list">
+              <li>Las pensiones públicas son insuficientes para mantener tu estilo de vida actual.</li>
+              <li>La inflación erosiona el valor real de tus ahorros año con año.</li>
+              <li>No hay claridad sobre cuánto ahorrar ni cuándo comenzar.</li>
+              <li>Sin estructura fiscal pierdes posibles devoluciones de impuestos.</li>
+              <li>La postergación tiene un costo exponencial por el efecto del tiempo.</li>
+            </ul>
+          </div>
+          <div class="sol-panel">
+            <h3>✓ Con Allianz OptiMaxx Plus PPR</h3>
+            <ul class="sol-list">
+              <li>Estrategia orientada al largo plazo y acumulación patrimonial.</li>
+              <li>Beneficios fiscales sujetos al marco legal aplicable en México.</li>
+              <li>Flexibilidad y acompañamiento durante toda la evaluación inicial.</li>
+              <li>Bono de hasta 12 meses de aportación acumulado.</li>
+              <li>Rendimiento promedio referencial de 13% anual histórico.</li>
+              <li>Distribución al final: una sola exhibición, mensualidades o renta vitalicia.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ COMPARE TABLE ══ -->
+    <section class="section" id="comparativo" aria-label="Comparativa de planes de retiro">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Comparativo</span>
+          <h2 class="section-title">Allianz vs<br><span class="section-title-accent">otras alternativas</span></h2>
+          <p class="section-lead">Compara las características más relevantes para tu decisión patrimonial.</p>
+        </div>
+        <div class="table-wrap" data-reveal>
+          <table aria-label="Comparativa de planes de retiro">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th class="is-featured">
+                  <div class="plan-logo-wrap" style="background:#005baa;border-color:#005baa;">
+                    <span style="color:#fff;font-weight:900;font-size:1rem;letter-spacing:-0.04em;">Allianz</span>
+                  </div>
+                  <span class="plan-name" style="color:var(--blue);">OptiMaxx Plus</span>
+                </th>
+                <th>
+                  <div class="plan-logo-wrap">
+                    <span style="font-weight:800;font-size:0.95rem;color:#334155;">Skandia</span>
+                  </div>
+                  <span class="plan-name" style="color:var(--slate-500);">Crea Futuro</span>
+                </th>
+                <th>
+                  <div class="plan-logo-wrap">
+                    <span style="font-weight:800;font-size:0.95rem;color:#334155;">Fintual</span>
+                  </div>
+                  <span class="plan-name" style="color:var(--slate-500);">PPR Fintual</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monto mínimo</td>
+                <td class="is-featured"><span class="check-best">$2,000 MXN</span></td>
+                <td>$1,500 MXN</td>
+                <td>$500 MXN</td>
+              </tr>
+              <tr>
+                <td>Beneficio fiscal</td>
+                <td class="is-featured"><span class="check-best">Art. 93°, 151°, 185°</span></td>
+                <td>Art. 93°, 151°, 185°</td>
+                <td>Art. 151°</td>
+              </tr>
+              <tr>
+                <td>Seguro de vida</td>
+                <td class="is-featured"><span class="check-yes">✓ Opcional</span></td>
+                <td>Obligatorio</td>
+                <td><span class="check-no">—</span></td>
+              </tr>
+              <tr>
+                <td>Bono de aportación</td>
+                <td class="is-featured"><span class="check-best">Hasta 12 meses</span></td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-no">—</span></td>
+              </tr>
+              <tr>
+                <td>Rendimiento prom. ref.</td>
+                <td class="is-featured"><span class="check-best">13% anual</span></td>
+                <td>~6% anual</td>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <td>Flexibilidad</td>
+                <td class="is-featured"><span class="check-best">Desde mes 19</span></td>
+                <td>Condicionado</td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Disponibilidad fondos</td>
+                <td class="is-featured"><span class="check-best">Mes 19, desde $10,000</span></td>
+                <td>Con condiciones</td>
+                <td>Parcial</td>
+              </tr>
+              <tr>
+                <td>Activos gestionados</td>
+                <td class="is-featured"><span class="check-best">$2.2 billones USD</span></td>
+                <td>$11,453 mill. USD</td>
+                <td>Local</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">*Datos de carácter referencial. Las condiciones finales están sujetas a evaluación de perfil y políticas vigentes de cada institución.</p>
+      </div>
+    </section>
+
+    <!-- ══ PROCESS ══ -->
+    <section class="section section-alt" id="proceso" aria-label="Proceso de atención">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Proceso de atención</span>
+          <h2 class="section-title">Así funciona<br><span class="section-title-accent">tu asesoría inicial</span></h2>
+        </div>
+        <div class="steps-grid" data-reveal>
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Registro</h3>
+            <p>Completa el formulario con tu información básica: nombre, edad, ingresos y monto estimado de aportación.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Revisión de perfil</h3>
+            <p>Analizamos tu objetivo patrimonial y te presentamos 3 escenarios de crecimiento proyectados a largo plazo.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Agenda tu cita</h3>
+            <p>Elige el escenario que más te conviene y agenda una cita para revisar los detalles y dar el siguiente paso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CALCULATOR ══ -->
+    <section class="section" id="calculadora" aria-label="Calculadora de retiro">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Calculadora referencial</span>
+          <h2 class="section-title">Simula tu<br><span class="section-title-accent">Plan de Retiro</span></h2>
+          <p class="section-lead">Calcula cuánto podrías acumular invirtiendo mensualmente hasta los 65 años.</p>
+        </div>
+
+        <div class="calc-grid" data-reveal>
+          <div class="calc-panel">
+            <h3>Configura tu simulación</h3>
+            <p class="lead">Ajusta los parámetros y ve cómo crece tu patrimonio.</p>
+
+            <!-- Edad actual -->
+            <div class="calc-row">
+              <div class="calc-row-header">
+                <label>Edad actual</label>
+                <span id="calcEdadVal">35 años</span>
+              </div>
+              <input type="range" id="calcEdad" min="18" max="64" value="35" />
+              <div class="range-labels"><span>18 años</span><span>64 años</span></div>
+            </div>
+
+            <!-- Años de inversión -->
+            <div class="calc-row">
+              <div class="calc-row-header">
+                <label>Años de inversión</label>
+                <span id="calcAniosVal">30 años</span>
+              </div>
+              <input type="range" id="calcAnios" min="1" max="40" value="30" />
+              <div class="range-labels"><span>1 año</span><span>40 años</span></div>
+            </div>
+
+            <!-- Rendimiento -->
+            <div class="calc-row">
+              <div class="calc-row-header">
+                <label>Rendimiento anual promedio</label>
+                <span id="calcRateLabel">12%</span>
+              </div>
+              <div class="rate-btns">
+                <button class="rate-btn active" data-rate="0.12" type="button">12%</button>
+                <button class="rate-btn" data-rate="0.13" type="button">13%</button>
+                <button class="rate-btn" data-rate="0.14" type="button">14%</button>
+              </div>
+            </div>
+
+            <!-- Inversión mensual -->
+            <div class="calc-row">
+              <div class="calc-row-header">
+                <label>Inversión mensual</label>
+                <span id="calcInvVal">$5,000 MXN</span>
+              </div>
+              <input type="range" id="calcInv" min="2000" max="10000" step="500" value="5000" />
+              <div class="range-labels"><span>$2,000</span><span>$10,000</span></div>
+            </div>
+
+            <!-- Deducción de impuestos -->
+            <div class="calc-row">
+              <div class="calc-row-header">
+                <label>Deducción de impuestos</label>
+                <span id="calcTaxLabel">No</span>
+              </div>
+              <p style="font-size:0.75rem;color:var(--slate-400);margin-bottom:6px;">Si facturas ante el SAT, puede haber reembolso hasta 35% de ISR.</p>
+              <div class="tax-btns">
+                <button class="tax-btn" data-tax="true" type="button">Sí</button>
+                <button class="tax-btn active" data-tax="false" type="button">No</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <aside class="result-panel" aria-live="polite">
+            <span class="result-tag">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              Resultado estimado
+            </span>
+            <h3>Proyección con aportaciones mensuales</h3>
+
+            <div class="result-big">
+              <span class="result-big-label">Capital final a los 65 años</span>
+              <span class="result-big-value" id="calcResult">$14,479,961</span>
+              <span class="result-big-sub" id="calcResultSub">Edad de término: 65 años</span>
+            </div>
+
+            <div class="result-rows">
+              <div class="result-row">
+                <span>Años de inversión</span>
+                <strong id="calcResAnios">30 años</strong>
+              </div>
+              <div class="result-row">
+                <span>Capital invertido</span>
+                <strong id="calcResInvertido">$1,800,000</strong>
+              </div>
+              <div class="result-row">
+                <span>Interés generado</span>
+                <strong id="calcResInteres">$12,679,961</strong>
+              </div>
+              <div class="result-row">
+                <span>Posible benef. fiscal</span>
+                <strong id="calcResFiscal">—</strong>
+              </div>
+            </div>
+
+            <p class="result-disclaimer">*Simulación referencial. No constituye garantía de rendimiento futuro ni asesoría fiscal personalizada.</p>
+
+            <a class="result-cta" href="#formulario">
+              Solicitar proyección personalizada →
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ALLIANZ TRUST ══ -->
+    <section class="section section-alt" id="allianz" aria-label="Respaldo Allianz">
+      <div class="container">
+        <div class="trust-grid" data-reveal>
+          <div class="trust-copy">
+            <span class="section-label">Respaldo institucional</span>
+            <h2 class="section-title">Allianz: una marca<br><span class="section-title-accent">de confianza global</span></h2>
+            <p>Allianz es una de las compañías financieras y aseguradoras más reconocidas a nivel mundial, con más de 130 años de trayectoria y presencia en más de 70 países.</p>
+            <p>Para decisiones patrimoniales de largo plazo, el respaldo institucional es un componente clave al momento de evaluar opciones de retiro en México.</p>
+            <div class="trust-stats">
+              <div class="trust-stat">
+                <span class="trust-stat-value">$2.2T</span>
+                <span class="trust-stat-label">USD en activos gestionados</span>
+              </div>
+              <div class="trust-stat">
+                <span class="trust-stat-value">+130</span>
+                <span class="trust-stat-label">Años de trayectoria</span>
+              </div>
+              <div class="trust-stat">
+                <span class="trust-stat-value">70+</span>
+                <span class="trust-stat-label">Países con presencia</span>
+              </div>
+              <div class="trust-stat">
+                <span class="trust-stat-value">CNSF</span>
+                <span class="trust-stat-label">Supervisado en México</span>
+              </div>
+            </div>
+          </div>
+          <div class="trust-image-area">
+            <span class="allianz-logo-large">Allianz</span>
+            <span class="trust-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Distribuidor autorizado en México
+            </span>
+            <p style="font-size:0.8rem;color:var(--slate-500);text-align:center;max-width:28ch;line-height:1.55;">Mar Vazquez Finanzas como distribuidor autorizado de Allianz México.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ══ -->
+    <section class="section" id="testimonios" aria-label="Testimonios de clientes">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Experiencias</span>
+          <h2 class="section-title">Lo que dicen<br><span class="section-title-accent">nuestros clientes</span></h2>
+        </div>
+        <div class="testimonials-grid" data-reveal>
+          <article class="testimonial">
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-text">"La orientación inicial me ayudó a entender cuánto necesitaba ahorrar y qué variables debía considerar para mi retiro. Todo muy claro y sin presión."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CM</div>
+              <div>
+                <div class="author-name">Carlos M.</div>
+                <div class="author-role">34 años · Ingeniero · CDMX</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-text">"Recibí una explicación muy clara sobre beneficios fiscales y escenarios de largo plazo. Paco me explicó todo sin tecnicismos y con mucha paciencia."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SL</div>
+              <div>
+                <div class="author-name">Sofía L.</div>
+                <div class="author-role">41 años · Directiva comercial · Monterrey</div>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-text">"El comparativo me permitió evaluar alternativas con más confianza antes de tomar cualquier decisión. Muy recomendable para quien quiere planear su retiro."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AR</div>
+              <div>
+                <div class="author-name">Andrea R.</div>
+                <div class="author-role">38 años · Empresaria · Guadalajara</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section class="section section-alt" id="preguntas" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <span class="section-label">Preguntas frecuentes</span>
+          <h2 class="section-title">Todo lo que necesitas<br><span class="section-title-accent">saber antes de empezar</span></h2>
+        </div>
+        <div class="faq-grid" data-reveal>
+          <details class="faq-item">
+            <summary>¿Qué es Allianz OptiMaxx Plus?</summary>
+            <div class="faq-body">Es una alternativa de ahorro e inversión orientada a planeación patrimonial de largo plazo con enfoque en retiro, asociada a una marca global reconocida y sujeta a evaluación de perfil.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Hay beneficios fiscales?</summary>
+            <div class="faq-body">Sí, las aportaciones a un Plan Personal de Retiro (PPR) tienen potencial tratamiento fiscal conforme a los artículos 93°, 151° y 185° de la LISR. Los alcances exactos dependen de tu situación fiscal particular.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿La contratación está sujeta a evaluación?</summary>
+            <div class="faq-body">Sí. La elegibilidad, condiciones, beneficios y disponibilidad del producto están sujetos a evaluación de perfil, documentación aplicable y las políticas vigentes de Allianz México.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto es la aportación mínima?</summary>
+            <div class="faq-body">La aportación mínima es de $2,000 MXN mensuales. Para acceder a la asesoría inicial es necesario tener ingresos superiores a $15,000 MXN mensuales.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo retirar mi dinero antes del plazo?</summary>
+            <div class="faq-body">Sí. A partir del mes 19, puedes realizar retiros parciales desde $10,000 MXN, tomar descansos de aportación y ajustar el monto mensual, sujeto a las condiciones vigentes del plan.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué documentos se requieren normalmente?</summary>
+            <div class="faq-body">Identificación oficial vigente, comprobante de domicilio, RFC e información financiera básica. Puede requerirse documentación adicional según tu perfil.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo tener Afore y este plan al mismo tiempo?</summary>
+            <div class="faq-body">Sí, son complementarios. El PPR es una estrategia adicional al Afore que puede mejorar tu posición patrimonial al retiro y aprovechar beneficios fiscales que el Afore no ofrece.</div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué sucede después de registrarme?</summary>
+            <div class="faq-body">Un asesor de Mar Vazquez te contactará por WhatsApp para explicarte tu proyección personalizada, resolver dudas y agendar una videollamada sin costo y sin compromiso.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ══ -->
+    <section class="cta-banner" id="cta" aria-label="Solicita tu asesoría">
+      <div class="container">
+        <h2 data-reveal>¿Listo para proyectar tu retiro?</h2>
+        <p data-reveal>Agenda una asesoría gratuita y recibe 3 escenarios de crecimiento patrimonial personalizados para ti.</p>
+        <a class="btn-cta-big" href="#formulario" data-reveal>
+          Calcula tu Retiro ahora →
+        </a>
+        <p class="cta-trust">Sin compromiso · Sin costo · Respaldado por Allianz México</p>
+      </div>
+    </section>
+
+    <!-- ══ DISCLAIMER LEGAL ══ -->
+    <div style="background:#f8fafc;padding:24px 0;border-top:1px solid #e2e8f0;">
+      <div class="container">
+        <p style="font-size:0.74rem;color:#94a3b8;line-height:1.7;text-align:center;max-width:900px;margin:0 auto;">
+          La información contenida en esta página es exclusivamente informativa y no constituye una oferta vinculante, recomendación definitiva de inversión ni promesa de rendimiento. La contratación, elegibilidad, beneficios, montos, disponibilidad y condiciones del producto están sujetos a evaluación de perfil, documentación aplicable y políticas vigentes de Allianz México. Los rendimientos, beneficios fiscales, simulaciones o ejemplos aquí mostrados son referenciales, pueden variar y no garantizan resultados futuros.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.svg" alt="Mar Vazquez Finanzas" />
+          </div>
+          <div>
+            <div class="footer-name">Mar Vazquez Finanzas</div>
+            <div class="footer-tagline">Distribuidor autorizado Allianz México</div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="tel:+525561307667">+52 55 6130 7667</a>
+          <a href="mailto:marvazquez@asesoriaconestrategia.com">marvazquez@asesoriaconestrategia.com</a>
+          <a href="https://instagram.com/marvazquezfinanzas" target="_blank" rel="noopener noreferrer">@marvazquezfinanzas</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mar Vazquez Finanzas. Todos los derechos reservados.</span>
+        <span>Supervisado por la CNSF · Distribuidor autorizado Allianz México</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ WHATSAPP FLOAT ══ -->
+  <a
+    class="wa-float"
+    href="https://wa.me/525561307667?text=Hola%2C+vi+la+landing+del+Plan+Personal+de+Retiro+Allianz+y+quiero+más+información"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Escríbenos</span>
+  </a>
+
+  <script>
+    /* ══ REVEAL ANIMATIONS ══ */
+    (function () {
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    /* ══ CALCULATOR ══ */
+    (function () {
+      const edadSlider  = document.getElementById('calcEdad');
+      const aniosSlider = document.getElementById('calcAnios');
+      const invSlider   = document.getElementById('calcInv');
+      const edadVal     = document.getElementById('calcEdadVal');
+      const aniosVal    = document.getElementById('calcAniosVal');
+      const invVal      = document.getElementById('calcInvVal');
+      const rateLabel   = document.getElementById('calcRateLabel');
+      const taxLabel    = document.getElementById('calcTaxLabel');
+      const rateBtns    = document.querySelectorAll('.rate-btn');
+      const taxBtns     = document.querySelectorAll('.tax-btn');
+
+      let rate = 0.12;
+      let taxBeneficio = false;
+
+      const fmt = n => '$' + Math.round(n).toLocaleString('es-MX');
+
+      function calcular() {
+        const edad   = parseInt(edadSlider.value, 10);
+        const anios  = parseInt(aniosSlider.value, 10);
+        const inv    = parseInt(invSlider.value, 10);
+        const meses  = anios * 12;
+        const rm     = rate / 12;
+
+        const saldo65 = (function() {
+          const aniosA65 = Math.max(0, 65 - edad);
+          const mesesA65 = aniosA65 * 12;
+          if (mesesA65 === 0) return inv;
+          return inv * ((Math.pow(1 + rm, mesesA65) - 1) / rm) * (1 + rm);
+        })();
+
+        const capitalInv = inv * meses;
+        const saldoAnios = inv * ((Math.pow(1 + rm, meses) - 1) / rm) * (1 + rm);
+        const interes    = saldoAnios - capitalInv;
+        const fiscal     = taxBeneficio ? capitalInv * 0.30 : 0;
+        const edadFin    = Math.min(edad + anios, 99);
+
+        document.getElementById('calcResult').textContent    = fmt(saldo65);
+        document.getElementById('calcResultSub').textContent = 'Edad de término: ' + Math.min(65, edadFin) + ' años';
+        document.getElementById('calcResAnios').textContent  = anios + ' años';
+        document.getElementById('calcResInvertido').textContent = fmt(capitalInv);
+        document.getElementById('calcResInteres').textContent   = fmt(interes);
+        document.getElementById('calcResFiscal').textContent    = taxBeneficio ? fmt(fiscal) : '—';
+      }
+
+      edadSlider.addEventListener('input', () => { edadVal.textContent = edadSlider.value + ' años'; calcular(); });
+      aniosSlider.addEventListener('input', () => { aniosVal.textContent = aniosSlider.value + ' años'; calcular(); });
+      invSlider.addEventListener('input', () => { invVal.textContent = '$' + parseInt(invSlider.value).toLocaleString('es-MX') + ' MXN'; calcular(); });
+
+      rateBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          rateBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          rate = parseFloat(btn.dataset.rate);
+          rateLabel.textContent = Math.round(rate * 100) + '%';
+          calcular();
+        });
+      });
+
+      taxBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          taxBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          taxBeneficio = btn.dataset.tax === 'true';
+          taxLabel.textContent = taxBeneficio ? 'Sí' : 'No';
+          calcular();
+        });
+      });
+
+      calcular();
+    })();
+
+    /* ══ PHONE VALIDATION (libphonenumber-js + AbstractAPI vía Make) ══ */
+    (function () {
+      const ladaEl = document.getElementById('ppr_lada');
+      const telEl  = document.getElementById('ppr_tel');
+      const wrap   = telEl ? telEl.closest('.phone-wrap') : null;
+      const status = document.getElementById('phoneStatus');
+      if (!telEl || !wrap || !status) return;
+
+      /* ── Reemplaza esta URL con la de tu webhook de Make ── */
+      const MAKE_PHONE_WEBHOOK = 'https://hook.us2.make.com/qghfhdg5whcwy3ezjlin9sf8tccqyehi';
+
+      const ICON_OK   = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      const ICON_BAD  = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      const ICON_SPIN = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="animation:spin 0.7s linear infinite"><path d="M21 12a9 9 0 1 1-3.1-6.8"/></svg>';
+
+      const COUNTRY_MAP = { '+52': 'MX', '+1': 'US' };
+
+      let cache   = null;   /* null=sin verificar | true=válido | false=inválido */
+      let pending = null;   /* promesa activa de verificación */
+      let timer   = null;
+
+      function setState(type, msg) {
+        wrap.classList.remove('is-valid', 'is-invalid');
+        status.className = 'phone-status';
+        status.innerHTML = '';
+        if (!type) return;
+        if (type === 'loading') {
+          status.className = 'phone-status is-loading';
+          status.innerHTML = ICON_SPIN + ' ' + msg;
+          return;
+        }
+        wrap.classList.add('is-' + type);
+        status.className = 'phone-status is-' + type;
+        status.innerHTML = (type === 'valid' ? ICON_OK : ICON_BAD) + ' ' + msg;
+      }
+
+      async function doValidate() {
+        const raw     = telEl.value.trim();
+        const lada    = ladaEl.value;
+        const country = COUNTRY_MAP[lada] || 'MX';
+        cache = null;
+
+        if (!raw) { setState(null, ''); return null; }
+
+        /* 1. Validación de formato (instantánea, sin red) */
+        let fmtOk = false;
+        try {
+          const parsed = libphonenumber.parsePhoneNumber(raw, country);
+          fmtOk = parsed.isValid();
+        } catch (_) {}
+
+        if (!fmtOk) {
+          setState('invalid', 'La cotización solo se enviará por WhatsApp');
+          cache = false;
+          return false;
+        }
+
+        /* 2. Verificación real vía Make → AbstractAPI */
+        setState('loading', 'Verificando número…');
+        const fullPhone = (lada + raw).replace(/[\s\-().]/g, '');
+
+        try {
+          const res  = await fetch(MAKE_PHONE_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone: fullPhone })
+          });
+          const data = await res.json();
+
+          if (data.valid === true) {
+            setState('valid', 'Número verificado');
+            cache = true;
+            return true;
+          } else {
+            setState('invalid', 'La cotización solo se enviará por WhatsApp');
+            cache = false;
+            return false;
+          }
+        } catch (_) {
+          /* Si Make no responde, confiamos en el formato (ya pasó) */
+          setState('valid', 'Número válido');
+          cache = true;
+          return true;
+        }
+      }
+
+      function onInput() {
+        cache   = null;
+        pending = null;
+        clearTimeout(timer);
+        setState(null, '');
+        wrap.classList.remove('is-valid', 'is-invalid');
+        /* Espera 700 ms después de que el usuario deje de escribir */
+        timer = setTimeout(() => { pending = doValidate(); }, 700);
+      }
+
+      telEl.addEventListener('input', onInput);
+      ladaEl.addEventListener('change', () => {
+        if (telEl.value.trim()) { cache = null; pending = doValidate(); }
+      });
+
+      /* El submit llama esto; si hay una verificación en vuelo la espera */
+      window._validatePhone = async function () {
+        if (cache !== null) return cache;
+        if (pending)        return await pending;
+        pending = doValidate();
+        return await pending;
+      };
+    })();
+
+    /* ══ INCOME VALIDATION ══ */
+    (function () {
+      const sel     = document.getElementById('ppr_ingresos');
+      const warning = document.getElementById('incomeWarning');
+      if (!sel || !warning) return;
+
+      function checkIncome() {
+        const low = sel.value === 'menos de $10,000';
+        warning.style.display      = low ? 'flex' : 'none';
+        sel.style.borderColor      = low ? '#ef4444' : '';
+        sel.style.boxShadow        = low ? '0 0 0 3px rgba(239,68,68,0.12)' : '';
+        return !low;
+      }
+
+      sel.addEventListener('change', checkIncome);
+      window._validateIncome = checkIncome;
+    })();
+
+    /* ══ AGE VALIDATION ══ */
+    (function () {
+      const edadEl  = document.getElementById('ppr_edad');
+      const warning = document.getElementById('ageWarning');
+      const invSel  = document.getElementById('ppr_inversion');
+      if (!edadEl || !warning || !invSel) return;
+
+      const ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+      function setInvMin3k() {
+        Array.from(invSel.options).forEach(opt => {
+          if (opt.value === '$2,000') opt.disabled = true;
+        });
+        if (invSel.value === '$2,000') invSel.value = '';
+      }
+
+      function clearInvMin() {
+        Array.from(invSel.options).forEach(opt => { opt.disabled = false; });
+      }
+
+      function showWarn(msg, isError) {
+        warning.innerHTML = ICON + ' <span>' + msg + '</span>';
+        warning.style.display = 'flex';
+        if (isError) {
+          warning.style.background = '#fef2f2';
+          warning.style.border = '1px solid #fca5a5';
+          warning.style.color = '#b91c1c';
+        } else {
+          warning.style.background = '#eff6ff';
+          warning.style.border = '1px solid #bfdbfe';
+          warning.style.color = '#1d4ed8';
+        }
+      }
+
+      function checkAge() {
+        const val = parseInt(edadEl.value, 10);
+
+        if (!val || isNaN(val)) {
+          warning.style.display = 'none';
+          edadEl.style.borderColor = '';
+          edadEl.style.boxShadow = '';
+          clearInvMin();
+          return true;
+        }
+
+        if (val > 55) {
+          showWarn('Lamentablemente, este plan no está disponible para personas mayores de 55 años.', true);
+          edadEl.style.borderColor = '#ef4444';
+          edadEl.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.12)';
+          clearInvMin();
+          return false;
+        }
+
+        if (val === 55) {
+          showWarn('Con 55 años la aportación mínima es de $3,000 MXN.', false);
+          edadEl.style.borderColor = '';
+          edadEl.style.boxShadow = '';
+          setInvMin3k();
+          return true;
+        }
+
+        warning.style.display = 'none';
+        edadEl.style.borderColor = '';
+        edadEl.style.boxShadow = '';
+        clearInvMin();
+        return true;
+      }
+
+      edadEl.addEventListener('input', checkAge);
+      edadEl.addEventListener('change', checkAge);
+      window._validateAge = checkAge;
+    })();
+
+    /* ══ FORM SUBMISSION ══ */
+    (function () {
+      const form    = document.getElementById('leadForm');
+      const btn     = document.getElementById('pprSubmitBtn');
+      const errBox  = document.getElementById('formError');
+      const success = document.getElementById('formSuccess');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        errBox.textContent = '';
+        errBox.classList.remove('is-visible');
+
+        const nombre    = document.getElementById('ppr_name').value.trim();
+        const email     = document.getElementById('ppr_email').value.trim();
+        const edad      = document.getElementById('ppr_edad').value.trim();
+        const profesion = document.getElementById('ppr_profesion').value.trim();
+        const lada      = document.getElementById('ppr_lada').value;
+        const tel       = document.getElementById('ppr_tel').value.trim();
+        const inversion = document.getElementById('ppr_inversion').value;
+        const ingresos  = document.getElementById('ppr_ingresos').value;
+
+        if (!nombre || !email || !edad || !profesion || !tel || !inversion || !ingresos) {
+          errBox.textContent = 'Por favor completa todos los campos.';
+          errBox.classList.add('is-visible');
+          return;
+        }
+
+        const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailReg.test(email)) {
+          errBox.textContent = 'Ingresa un correo electrónico válido.';
+          errBox.classList.add('is-visible');
+          return;
+        }
+
+        /* validación de ingresos mínimos */
+        const incomeOk = window._validateIncome ? window._validateIncome() : true;
+        if (!incomeOk) {
+          document.getElementById('ppr_ingresos').focus();
+          return;
+        }
+
+        /* validación de edad */
+        const ageOk = window._validateAge ? window._validateAge() : true;
+        if (!ageOk) {
+          document.getElementById('ppr_edad').focus();
+          return;
+        }
+        if (parseInt(edad, 10) === 55 && inversion === '$2,000') {
+          errBox.textContent = 'Con 55 años, la aportación mínima es de $3,000 MXN.';
+          errBox.classList.add('is-visible');
+          document.getElementById('ppr_inversion').focus();
+          return;
+        }
+
+        /* validación de teléfono (formato + AbstractAPI vía Make) */
+        btn.disabled = true;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="animation:spin 0.7s linear infinite"><path d="M21 12a9 9 0 1 1-3.1-6.8"/></svg> Verificando número…';
+
+        const phoneOk = window._validatePhone ? await window._validatePhone() : true;
+
+        if (phoneOk === false) {
+          errBox.textContent = 'Ingresa un número de WhatsApp válido para poder enviarte la cotización.';
+          errBox.classList.add('is-visible');
+          document.getElementById('ppr_tel').focus();
+          btn.disabled = false;
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Calcula tu Retiro';
+          return;
+        }
+
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 0.7s linear infinite"><path d="M21 12a9 9 0 1 1-3.1-6.8"/></svg> Enviando…';
+
+        const SUPABASE_URL      = 'https://waojkmqvyorojgaymnee.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indhb2prbXF2eW9yb2pnYXltbmVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDYyODMsImV4cCI6MjA5NDE4MjI4M30.HNwmN_fw5_5a2Mmimqlc1s0crCtO9YGX5K0s0ulZNoA';
+        const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const payload = {
+          nombre,
+          correo:         email,
+          whatsapp:       lada + tel,
+          edad_actual:    edad || null,
+          ahorro_mensual: inversion || null,
+          fuente:         'ppr',
+          estatus:        'nuevo',
+          notas:          `Profesión: ${profesion} | Ingresos: ${ingresos}`,
+        };
+
+        try {
+          await db.from('leads').insert([payload]);
+        } catch (_) { /* fail silently */ }
+
+        try {
+          await fetch('https://hook.us2.make.com/8avpyry2d1t24xjgweav2rnjpc3s11t6', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nombre,
+              correo:    email,
+              whatsapp:  lada + tel,
+              edad:      edad,
+              profesion,
+              inversion,
+              ingresos,
+            })
+          });
+        } catch (_) { /* fail silently */ }
+
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+        // Redirige a la página de gracias (Calendly + WhatsApp). Pasa el
+        // nombre para personalizar el saludo. Pequeño delay para asegurar
+        // que el Pixel registre el Lead antes de cambiar de página.
+        var nombreParam = encodeURIComponent((nombre || '').split(' ')[0] || '');
+        setTimeout(function () {
+          window.location.href = './gracias-plus.html' + (nombreParam ? ('?nombre=' + nombreParam) : '');
+        }, 600);
+      });
+    })();
+  </script>
+
+</body>
+</html>
