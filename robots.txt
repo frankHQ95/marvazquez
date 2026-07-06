@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asesoriaconestrategia.com/sitemap.xml

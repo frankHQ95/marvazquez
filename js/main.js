@@ -13,6 +13,18 @@ const CONFIG = {
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ===== Collage del hero: monedas / billetes / estrellas alrededor de la foto ===== */
+(function(){
+  const items=[['coin c1','$'],['coin c2','$'],['coin c3','$'],['bill b1','$'],['bill b2','$'],['star s1','✦'],['star s2','✦'],['star s3','✦'],['gem g1','◆']];
+  document.querySelectorAll('.hero-photo').forEach(hp=>{
+    items.forEach(([cls,txt])=>{
+      const d=document.createElement('span');
+      d.className='hd '+cls; d.textContent=txt; d.setAttribute('aria-hidden','true');
+      hp.appendChild(d);
+    });
+  });
+})();
+
 /* ===== Header scroll + sticky CTA + volver arriba ===== */
 (function(){
   const header = document.getElementById('header');
@@ -114,7 +126,7 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 (function(){
   const frame=document.getElementById('vsl-video');
   if(!frame) return;
-  frame.addEventListener('click',()=>{
+  function activate(){
     const embed=frame.dataset.embed;
     if(embed){
       frame.innerHTML='<iframe src="'+embed+'" title="Webinar Mar Vazquez" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;position:absolute;inset:0"></iframe>';
@@ -122,7 +134,9 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const form=document.getElementById('registro')||document.getElementById('contacto');
       if(form) form.scrollIntoView({behavior:reduce?'auto':'smooth'});
     }
-  });
+  }
+  frame.addEventListener('click',activate);
+  frame.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
 })();
 
 /* ===== Meta Pixel helper ===== */
@@ -165,7 +179,8 @@ function track(event, data){ if(typeof fbq==='function'){ fbq('track', event, da
       if(!ok) valid=false;
     });
     const consent=document.getElementById('consent');
-    if(consent && !consent.checked){ consent.focus(); valid=false; }
+    if(consent && !consent.checked){ setError('consent',true); consent.focus(); valid=false; }
+    else { setError('consent',false); }
     if(!valid) return;
 
     const interestEl=document.getElementById('interest');
@@ -175,6 +190,7 @@ function track(event, data){ if(typeof fbq==='function'){ fbq('track', event, da
       phone: form.phone.value.replace(/\D/g,''),
       interest: interestEl ? interestEl.value : (form.dataset.interest||'General'),
       source: form.dataset.source || 'landing-mar-vazquez',
+      consent: consent ? consent.checked : true,
       ts: new Date().toISOString()
     };
 
@@ -182,9 +198,13 @@ function track(event, data){ if(typeof fbq==='function'){ fbq('track', event, da
     const label=btn.textContent;
     btn.disabled=true; btn.textContent='Enviando...';
 
+    // limpia mensaje de error de envío previo
+    const prevErr=form.querySelector('.form-error'); if(prevErr) prevErr.remove();
+
     try{
       if(CONFIG.leadEndpoint){
-        await fetch(CONFIG.leadEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        const res=await fetch(CONFIG.leadEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        if(!res.ok) throw new Error('HTTP '+res.status);
       }
       track('Lead',{content_name: payload.interest});
       form.style.display='none';
@@ -200,7 +220,11 @@ function track(event, data){ if(typeof fbq==='function'){ fbq('track', event, da
       }
     }catch(err){
       btn.disabled=false; btn.textContent=label;
-      alert('Ocurrió un error al enviar. Escríbeme por WhatsApp: '+CONFIG.whatsapp);
+      const box=document.createElement('div');
+      box.className='form-error';
+      box.setAttribute('role','alert');
+      box.innerHTML='No se pudo enviar. Intenta de nuevo o escríbeme por <a href="https://wa.me/'+CONFIG.whatsapp+'" target="_blank" rel="noopener">WhatsApp</a>.';
+      btn.insertAdjacentElement('afterend', box);
     }
   });
 })();
