@@ -799,3 +799,31 @@ body.has-sticky .to-top{bottom:86px}
 .hd.g1{top:38%;left:-2%;animation-delay:.9s}
 @media(max-width:980px){ .hd.c3,.hd.b2,.hd.g1{display:none} }
 @media(prefers-reduced-motion:reduce){ .hd{animation:none} }
+
+/* Ilustración alusiva en cards de producto */
+.prod-illu{position:relative;height:148px;margin-bottom:22px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,#EEF4FF,#DCE8FF);border:1px solid var(--blue-100);display:grid;place-items:center}
+.prod-illu svg{width:88%;height:82%;overflow:visible}
+.prod.featured .prod-illu{background:linear-gradient(135deg,#E6EEFF,#D3E1FF)}
+
+/* Proceso: degradado desde el azul de la sección anterior + gráfico bursátil */
+#proceso{
+  overflow:hidden;
+  background:linear-gradient(180deg,#001A6B 0%,#0E39A6 9%,#2C55CC 19%,#8FB4F0 32%,#D7E4FA 44%,var(--bg) 60%);
+}
+/* brillo azul llamativo detrás del contenido */
+#proceso::after{content:"";position:absolute;z-index:0;top:-10%;left:50%;transform:translateX(-50%);
+  width:1000px;height:520px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(56,189,248,.35),transparent 70%)}
+#proceso .proceso-bg{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url(../assets/chart-bg.svg) center/cover no-repeat;opacity:.30;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 24%,#000 88%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 24%,#000 88%,transparent)}
+#proceso .wrap{position:relative;z-index:1}
+/* encabezado en blanco (zona azul superior) */
+#proceso .shead .title{color:#fff}
+#proceso .shead .lead{color:rgba(255,255,255,.9)}
+#proceso .eyebrow{color:#fff;background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+#proceso .eyebrow .dot{background:#5EEAD4}
+/* tarjetas de paso resaltan sobre el fondo */
+#proceso .tcard{background:#fff;box-shadow:0 22px 55px -22px rgba(0,26,107,.4)}
