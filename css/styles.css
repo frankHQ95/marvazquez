@@ -206,6 +206,10 @@ header.scrolled{
 .badge-float svg{color:var(--blue-600);flex:none}
 .badge-float.b1{top:-18px;left:-16px;animation:floaty 5s ease-in-out infinite}
 .badge-float.b2{bottom:-16px;right:-14px;animation:floaty 6s ease-in-out infinite .8s}
+.badge-float.b3{top:34%;left:-34px;animation:floaty 5.5s ease-in-out infinite .4s}
+/* Variante de dos líneas: el premio necesita nombrar quién lo otorga. */
+.badge-float.stack span{display:flex;flex-direction:column;line-height:1.25}
+.badge-float.stack small{font-size:.7rem;font-weight:600;color:var(--slate);letter-spacing:.02em}
 @media(max-width:520px){.badge-float{display:none}}
 
 /* ============ MARQUEE (certificaciones) ============ */
@@ -313,6 +317,56 @@ header.scrolled{
 .aud .ai{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;background:var(--blue-50);color:var(--blue-600)}
 .aud b{color:var(--blue-900);font-size:.98rem}
 
+/* ============ ILUSTRACIONES (PNG recortados de assets/iconos) ============ */
+/* Cada PNG trae su propia mancha azul de fondo, así que va sin chip de color
+   detrás: el chip tintado duplicaría el fondo y ensuciaría el dibujo. */
+.ill{display:block;width:100%;height:100%;object-fit:contain}
+.icon.icon-ill,.aud .ai.icon-ill{background:none;border:0;padding:0;border-radius:0}
+.icon.icon-ill{width:64px;height:64px}
+.aud .ai.icon-ill{width:54px;height:54px}
+.card:hover .icon.icon-ill{background:none;transform:scale(1.06) rotate(-3deg)}
+/* Absoluto y no en el grid: la fila es auto y un height:% no resolvería. */
+.prod-illu img{position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:contain}
+
+/* ============ AVISO DE ACTIVIDAD (pop-up) ============ */
+/* Abajo a la izquierda: el botón de WhatsApp vive abajo a la derecha. */
+.aviso{
+  position:fixed;left:20px;bottom:20px;z-index:60;max-width:340px;
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:14px 16px;box-shadow:var(--shadow-md);
+  transform:translateY(16px);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s
+}
+.aviso.show{transform:none;opacity:1}
+.aviso svg{color:var(--green-dark);flex:none}
+.aviso p{margin:0;font-size:.88rem;color:var(--ink);line-height:1.4}
+.aviso b{color:var(--blue-900)}
+.aviso button{
+  flex:none;background:none;border:0;cursor:pointer;color:var(--slate-2);
+  font-size:1.4rem;line-height:1;padding:0 2px;min-width:32px;min-height:32px
+}
+.aviso button:hover{color:var(--ink)}
+/* En móvil la barra fija de CTA ocupa el pie: el aviso sube por encima. */
+@media(max-width:720px){.aviso{left:12px;right:12px;max-width:none;bottom:88px}}
+@media(prefers-reduced-motion:reduce){.aviso{transition:none}}
+
+/* ============ PLAZO FISCAL ============ */
+/* Urgencia real: las aportaciones a un PPR deben hacerse antes del 31 de
+   diciembre para deducirse en ese ejercicio. El conteo lo calcula main.js en
+   vivo, así que nunca queda una cifra vieja publicada. */
+.plazo-fiscal{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;text-align:center;
+  background:linear-gradient(135deg,#ECFDF5,#F0FDFA);
+  border:1px solid #A7F3D0;border-left:4px solid var(--green);
+  border-radius:var(--radius);padding:18px 24px;box-shadow:var(--shadow-xs)
+}
+.plazo-fiscal svg{color:var(--green-dark);flex:none}
+.plazo-fiscal p{color:var(--ink);font-size:.98rem;margin:0;max-width:62ch}
+.plazo-fiscal b{color:var(--green-dark);font-weight:700}
+.plazo-fiscal .btn{flex:none}
+@media(min-width:760px){.plazo-fiscal{flex-wrap:nowrap;text-align:left;justify-content:flex-start}}
+.lead-sec .plazo-fiscal{margin-bottom:36px}
+
 /* ============ FILOSOFÍA (banda azul) ============ */
 .philo{
   background:
@@ -325,6 +379,11 @@ header.scrolled{
 .philo-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:26px 24px;backdrop-filter:blur(6px);transition:transform .3s,background .3s}
 .philo-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.1)}
 .philo-card .icon{background:rgba(255,255,255,.1);color:var(--cyan-400);border-color:rgba(255,255,255,.14)}
+/* Sobre navy, la mancha clara del PNG necesita un chip blanco que la contenga. */
+.philo-card .icon.icon-ill{
+  width:66px;height:66px;border-radius:18px;padding:5px;
+  background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.5)
+}
 .philo-card h3{color:#fff;font-size:1.12rem;margin-bottom:8px}
 .philo-card p{color:var(--blue-200);font-size:.92rem}
 
@@ -801,7 +860,8 @@ body.has-sticky .to-top{bottom:86px}
 @media(prefers-reduced-motion:reduce){ .hd{animation:none} }
 
 /* Ilustración alusiva en cards de producto */
-.prod-illu{position:relative;height:148px;margin-bottom:22px;border-radius:16px;overflow:hidden;
+/* 190px: la ilustración es cuadrada y a 148px quedaba perdida en la caja ancha. */
+.prod-illu{position:relative;height:190px;margin-bottom:22px;border-radius:16px;overflow:hidden;
   background:linear-gradient(135deg,#EEF4FF,#DCE8FF);border:1px solid var(--blue-100);display:grid;place-items:center}
 .prod-illu svg{width:88%;height:82%;overflow:visible}
 .prod.featured .prod-illu{background:linear-gradient(135deg,#E6EEFF,#D3E1FF)}

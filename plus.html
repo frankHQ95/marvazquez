@@ -607,6 +607,9 @@
 
     .card-icon svg { width: 24px; height: 24px; }
 
+    .card-icon.icon-ill { width: 60px; height: 60px; background: none; border: 0; border-radius: 0; }
+    .card-icon.icon-ill img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
     .card h3 {
       font-size: 1rem;
       font-weight: 700;
@@ -1557,6 +1560,19 @@
       /* WhatsApp float */
       .wa-float { bottom: 14px; right: 14px; }
     }
+    /* Plazo real de deducibilidad: las aportaciones a un PPR deben hacerse antes
+       del 31 de diciembre para deducirse en ese ejercicio. El conteo se calcula
+       en vivo (ver script al final) para que nunca quede una cifra vieja. */
+    .plazo-fiscal {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      background: linear-gradient(135deg, #ECFDF5, #F0FDFA);
+      border: 1px solid #A7F3D0; border-left: 4px solid #10B981;
+      border-radius: 16px; padding: 16px 20px; margin-bottom: 22px;
+    }
+    .plazo-fiscal svg { color: #059669; flex: none; }
+    .plazo-fiscal p { margin: 0; font-size: .95rem; color: #0F172A; flex: 1 1 260px; }
+    .plazo-fiscal b { color: #059669; font-weight: 700; }
+
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -1637,6 +1653,12 @@
               <li>Rendimiento promedio referencial de 13% anual</li>
               <li>Asesoría personalizada sin costo y sin compromiso</li>
             </ul>
+          </div>
+
+          <!-- Plazo real de deducibilidad. Nace oculta; el script la llena. -->
+          <div class="plazo-fiscal" data-plazo hidden>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+            <p data-plazo-texto></p>
           </div>
 
           <!-- Form -->
@@ -1844,29 +1866,29 @@
         </div>
         <div class="cards-grid" data-reveal>
           <div class="card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <div class="card-icon icon-ill">
+              <img src="assets/iconos/sm/billetes.png" alt="Eficiencia fiscal" width="160" height="160" loading="lazy" decoding="async" />
             </div>
             <h3>Eficiencia fiscal</h3>
             <p>Aportaciones con potencial deducción de impuestos conforme a los artículos 93°, 151° y 185° de la LISR.</p>
           </div>
           <div class="card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <div class="card-icon icon-ill">
+              <img src="assets/iconos/sm/ahorro-inversion.png" alt="Crecimiento a largo plazo" width="160" height="160" loading="lazy" decoding="async" />
             </div>
             <h3>Crecimiento a largo plazo</h3>
             <p>Inversión en fondos diversificados con exposición al mercado de valores de EE. UU. y opciones globales.</p>
           </div>
           <div class="card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="card-icon icon-ill">
+              <img src="assets/iconos/sm/constancia.png" alt="Respaldo institucional" width="160" height="160" loading="lazy" decoding="async" />
             </div>
             <h3>Respaldo institucional</h3>
             <p>Allianz es una de las aseguradoras más reconocidas a nivel global, con supervisión de la CNSF en México.</p>
           </div>
           <div class="card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="card-icon icon-ill">
+              <img src="assets/iconos/sm/monedas.png" alt="Flexibilidad desde el mes 19" width="160" height="160" loading="lazy" decoding="async" />
             </div>
             <h3>Flexibilidad desde el mes 19</h3>
             <p>Opciones de descanso de aportaciones, retiros parciales desde $10,000 y ajuste de monto de inversión.</p>
@@ -2747,5 +2769,27 @@
     })();
   </script>
 
+
+  <script>
+  /* Plazo de deducibilidad: se calcula al vuelo, nunca se escribe a mano, para
+     que la cifra sea cierta y no se quede vieja. Oculto si el JS no corre. */
+  (function () {
+    var bandas = document.querySelectorAll('[data-plazo]');
+    if (!bandas.length) return;
+    var hoy = new Date(), anio = hoy.getFullYear();
+    var dias = Math.round((Date.UTC(anio, 11, 31) - Date.UTC(anio, hoy.getMonth(), hoy.getDate())) / 86400000);
+    if (dias < 0) return;
+    var texto = dias === 0
+      ? 'Hoy es el último día para que tus aportaciones cuenten en tu declaración de ' + anio + '.'
+      : dias === 1
+        ? 'Mañana vence el plazo para que tus aportaciones cuenten en tu declaración de ' + anio + '.'
+        : 'Quedan <b>' + dias + ' días</b> para que tus aportaciones cuenten en tu declaración de ' + anio + '.';
+    for (var i = 0; i < bandas.length; i++) {
+      var slot = bandas[i].querySelector('[data-plazo-texto]');
+      if (slot) slot.innerHTML = texto;
+      bandas[i].hidden = false;
+    }
+  })();
+  </script>
 </body>
 </html>
