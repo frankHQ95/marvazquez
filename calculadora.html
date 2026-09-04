@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cotizador de Retiro y PPR · Mar Vazquez Finanzas</title>
+<meta name="description" content="Calcula cuánto necesitas ahorrar para tu retiro en México. Proyecta tu fondo, tu pensión mensual estimada y el beneficio fiscal de tu PPR, y descarga la cotización en PDF. Gratis y sin registro previo." />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#0033A0" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Cotizador de Retiro y PPR · Mar Vazquez Finanzas" />
+<meta property="og:description" content="Proyecta tu fondo de retiro, tu pensión mensual estimada y tu beneficio fiscal. Descarga tu cotización en PDF." />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:url" content="https://asesoriaconestrategia.com/calculadora.html" />
+<meta property="og:image" content="https://asesoriaconestrategia.com/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cotizador de Retiro y PPR · Mar Vazquez Finanzas" />
+<meta name="twitter:description" content="Calcula tu fondo de retiro, tu pensión estimada y tu beneficio fiscal. Cotización descargable en PDF." />
+<meta name="twitter:image" content="https://asesoriaconestrategia.com/assets/og-image.jpg" />
+<link rel="canonical" href="https://asesoriaconestrategia.com/calculadora.html" />
+
+<!-- Favicons -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Estilos: base del sitio + hoja exclusiva del cotizador -->
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/calculadora.css" />
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Cotizador de Retiro y PPR · Mar Vazquez Finanzas",
+  "url":"https://asesoriaconestrategia.com/calculadora.html",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Web",
+  "inLanguage":"es-MX",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"MXN"},
+  "provider":{
+    "@type":"FinancialService",
+    "name":"Mar Vazquez Finanzas",
+    "url":"https://asesoriaconestrategia.com",
+    "founder":{"@type":"Person","name":"Mar Vazquez","jobTitle":"Asesora financiera certificada CNSF"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"¿Puedo cambiar después mi aportación mensual?",
+   "acceptedAnswer":{"@type":"Answer","text":"Sí. A partir del mes 19 puedes incrementar o disminuir tu aportación según cómo evolucione tu situación."}},
+  {"@type":"Question","name":"¿El rendimiento está garantizado?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. La proyección usa un escenario moderado del 10% anual con fines educativos; el resultado real depende de los fondos donde se invierta tu dinero y de las condiciones de mercado."}},
+  {"@type":"Question","name":"¿Qué pasa si detengo mis aportaciones?",
+   "acceptedAnswer":{"@type":"Answer","text":"Después del mes 19 puedes suspender tus aportaciones si lo necesitas. El saldo acumulado sigue invertido."}},
+  {"@type":"Question","name":"¿Qué inflación usa la calculadora?",
+   "acceptedAnswer":{"@type":"Answer","text":"Una inflación anual del 4.5%, que se usa tanto para traer los montos futuros a pesos de hoy como para el incremento anual de tu aportación."}}
+ ]
+}
+</script>
+
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '25336372275973357');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=25336372275973357&ev=PageView&noscript=1" /></noscript>
+
+</head>
+<body class="calc-page">
+
+<!-- ======================= HEADER ======================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img class="mark" src="assets/logo.svg" width="40" height="40" alt="Mar Vazquez Finanzas" />Mar Vazquez Finanzas</a>
+    <nav class="nav-links">
+      <a href="index.html#sobre-mi">Sobre mí</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#proceso">Proceso</a>
+      <a href="index.html#faq">Preguntas</a>
+    </nav>
+    <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20estoy%20usando%20el%20cotizador%20de%20retiro%20y%20quiero%20una%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn btn-primary nav-cta"><span class="cta-full">Agenda tu asesoría</span><span class="cta-short">Agenda</span></a>
+  </div>
+</header>
+
+<!-- Logo en PNG: se dibuja en el PDF de la cotización. No se muestra en pantalla. -->
+<img id="pdfLogoAsset" src="assets/logo.svg" width="256" height="256" alt="" style="display:none" />
+
+<div class="shell">
+
+  <!-- ======================= HERO ======================= -->
+  <section class="lampHero" aria-labelledby="heroOverviewTitle">
+    <div class="lampContent">
+      <div class="leadEyebrow">Planeación de retiro</div>
+      <h1 class="leadTitle" id="heroOverviewTitle">Calcula tu <span class="heroTitleAccent">meta de retiro</span> y conviértela en una <span class="heroTitleGold">cotización clara.</span></h1>
+      <p class="leadText">
+        Estima cuánto necesitas para vivir el retiro que quieres, proyecta cuánto podrías acumular con un Plan Personal de Retiro y descarga tu cotización en PDF para revisarla con calma.
+      </p>
+      <div class="ctaRow">
+        <button type="button" class="ghostBtn primary" id="startProjectionBtn">Inicia tu proyección</button>
+        <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20sobre%20mi%20plan%20de%20retiro"
+           target="_blank" rel="noopener" class="ghostBtn">
+          Agenda asesoría gratis
+        </a>
+      </div>
+      <div class="heroTrustBar" aria-label="Señales de confianza del cotizador">
+        <span class="heroTrustItem">En menos de 2 minutos</span>
+        <span class="heroTrustItem">Cotización descargable en PDF</span>
+        <span class="heroTrustItem">Asesora certificada CNSF</span>
+      </div>
+      <ul class="benefitList" aria-label="Beneficios del cotizador">
+        <li class="benefitItem" data-reveal data-delay="1">
+          <span class="benefitKicker"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> 1. Ruta clara</span>
+          <span class="benefitCopy">Primero defines cuánto quieres ganar al mes al retirarte y después aterrizamos la cotización de tu plan.</span>
+        </li>
+        <li class="benefitItem" data-reveal data-delay="2">
+          <span class="benefitKicker"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> 2. Números reales</span>
+          <span class="benefitCopy">Ves un escenario moderado con la evolución de tu fondo, tu pensión estimada y el desglose año por año.</span>
+        </li>
+        <li class="benefitItem" data-reveal data-delay="3">
+          <span class="benefitKicker"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> 3. Salida accionable</span>
+          <span class="benefitCopy">Descargas la cotización en PDF y seguimos la conversación por WhatsApp para ajustarla a tu caso.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div id="projectionFlow" class="hidden">
+
+  <!-- ══ PASO 1: TU META DE RETIRO ══════════════════════════════════════ -->
+  <section class="card metaCard" id="metaCard" aria-labelledby="metaCardTitle">
+    <div class="cardHeader">
+      <div class="cardHeaderRow">
+        <span class="stepBadge">Paso 1</span>
+        <h2 id="metaCardTitle" style="margin:0">Tu meta de retiro</h2>
+      </div>
+      <p>Dime cuánto quieres recibir al mes cuando te retires y calculo cuánto necesitarías aportar.</p>
+    </div>
+    <div class="cardBody">
+
+      <div class="field">
+        <label for="metaName">Tu nombre</label>
+        <input id="metaName" type="text" placeholder="Ej. Carlos Ramírez" autocomplete="given-name" oninput="onMetaChange()" />
+      </div>
+
+      <div class="metaTwoCol">
+        <div class="field">
+          <label for="metaAge">Edad actual</label>
+          <input id="metaAge" type="number" inputmode="numeric" min="18" max="70" placeholder="Ej. 35" oninput="onMetaChange()" />
+          <div class="hint">Entre 18 y 70 años.</div>
+        </div>
+        <div class="field">
+          <label for="metaRetireAge">Edad de retiro</label>
+          <select id="metaRetireAge" onchange="onMetaChange()">
+            <option value="60">60 años</option><option value="61">61 años</option>
+            <option value="62">62 años</option><option value="63">63 años</option>
+            <option value="64">64 años</option><option value="65" selected>65 años</option>
+            <option value="66">66 años</option><option value="67">67 años</option>
+            <option value="68">68 años</option><option value="69">69 años</option>
+            <option value="70">70 años</option><option value="71">71 años</option>
+            <option value="72">72 años</option><option value="73">73 años</option>
+            <option value="74">74 años</option><option value="75">75 años</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="metaGoal">¿Cuánto quieres recibir al mes al retirarte? <span class="labelNote">(pesos de hoy)</span></label>
+        <input id="metaGoal" type="number" inputmode="decimal" min="0" step="1000" placeholder="Ej. 40,000" oninput="onMetaChange()" />
+        <div class="hint" id="metaGoalHint">En pesos de hoy. Lo ajustamos automáticamente por inflación.</div>
+      </div>
+
+      <!-- AFORE — aparece cuando los datos básicos están listos -->
+      <div class="metaAforeGroup hidden" id="metaAforeGroup">
+        <div class="metaGroupTitle">¿También tienes AFORE? <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.6">(opcional)</span></div>
+        <div class="aforeToggleRow">
+          <span class="aforeToggleLabel">¿Tienes cuenta AFORE activa?</span>
+          <div class="segRow" role="group" aria-label="¿Tienes AFORE?">
+            <button type="button" class="segBtn" id="aforeToggleNo" onclick="setAforeMode('no')">No tengo</button>
+            <button type="button" class="segBtn" id="aforeToggleSi" onclick="setAforeMode('si')">Sí tengo</button>
+          </div>
+        </div>
+        <div id="aforeInputSection" class="hidden">
+          <div class="aforeInputsGrid">
+            <div class="field">
+              <label for="aforeSBC">Salario mensual cotizable (SBC)</label>
+              <input type="number" id="aforeSBC" inputmode="numeric" min="0" step="500" placeholder="Ej. 20,000" oninput="onMetaChange(); if(window.lastRetirementResults) recalcAfore();" />
+              <div class="hint">El sueldo sobre el que cotizas ante el IMSS.</div>
+            </div>
+            <div class="field">
+              <label for="aforeAnioAlta">Año de alta en el IMSS</label>
+              <input type="number" id="aforeAnioAlta" inputmode="numeric" min="1997" max="2026" placeholder="Ej. 2010" oninput="onMetaChange(); if(window.lastRetirementResults) recalcAfore();" />
+              <div class="hint">Si no recuerdas la fecha exacta, pon el año aproximado.</div>
+            </div>
+            <div class="field">
+              <label for="aforeSaldo">Saldo AFORE actual <span style="font-weight:400;opacity:.6">(opcional)</span></label>
+              <input type="number" id="aforeSaldo" inputmode="numeric" min="0" step="1000" placeholder="Ej. 85,000" oninput="onMetaChange(); if(window.lastRetirementResults) recalcAfore();" />
+              <div class="hint">Consúltalo en la app de tu AFORE o en e.SAR.gob.mx.</div>
+            </div>
+            <div class="field">
+              <label for="aforeSemanas">Semanas cotizadas <span style="font-weight:400;opacity:.6">(opcional)</span></label>
+              <input type="number" id="aforeSemanas" inputmode="numeric" min="0" step="1" placeholder="Se estima automático" oninput="onMetaChange(); if(window.lastRetirementResults) recalcAfore();" />
+              <div class="hint">Si no las sabes, las estimamos desde tu año de alta.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumen / Brecha en tiempo real -->
+      <div class="metaBrechaBox hidden" id="metaBrechaBox" aria-live="polite">
+        <div class="metaBrechaTitle">Tu panorama de retiro</div>
+        <div class="metaBrechaRow">
+          <span>Meta mensual (pesos de hoy)</span>
+          <strong id="metaBrechaMeta">—</strong>
+        </div>
+        <div class="metaBrechaRow teal">
+          <span>Tu AFORE proyecta cubrir</span>
+          <strong id="metaBrechaAfore">—</strong>
+        </div>
+        <div class="metaBrechaRow blue">
+          <span>El PPR necesita cubrir</span>
+          <strong id="metaBrechaPPR">—</strong>
+        </div>
+        <div class="metaBrechaRow gold">
+          <span>Aportación PPR sugerida</span>
+          <strong id="metaAportSugerida">Completa los datos…</strong>
+        </div>
+      </div>
+
+      <div class="btnRow" style="margin-top:20px">
+        <button type="button" class="btn" id="metaNextBtn" disabled onclick="goToPPRStep()">
+          Ver mi proyección
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <div class="error hidden" id="metaError" role="alert">Completa tu nombre, edad y meta mensual para continuar.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ PASO 1.5: VISTA PREVIA DE TU PLAN ══════════════════════════════ -->
+  <section class="card planPreviewCard hidden" id="planPreviewCard" aria-labelledby="planPreviewTitle">
+    <div class="cardHeader">
+      <div class="cardHeaderRow">
+        <span class="stepBadge">Vista previa</span>
+        <h2 id="planPreviewTitle" style="margin:0">Tu plan completo de retiro</h2>
+      </div>
+      <p>Cifras principales en pesos de hoy · referencia en pesos futuros · rendimiento estimado del PPR 10% anual</p>
+    </div>
+    <div class="cardBody">
+
+      <div class="planBreakdownTable">
+        <div class="planBreakdownRow">
+          <span>Tu meta mensual al retiro</span>
+          <div class="planBreakdownRight">
+            <strong id="ppMeta">—</strong>
+            <span class="ppFuture" id="ppMetaFut"></span>
+          </div>
+        </div>
+        <div class="planBreakdownRow">
+          <span>Pensión AFORE estimada</span>
+          <div class="planBreakdownRight">
+            <strong id="ppAfore">—</strong>
+            <span class="ppFuture" id="ppAforeFut"></span>
+          </div>
+        </div>
+        <div class="planBreakdownRow covered">
+          <span>Ya tienes cubierto</span>
+          <div class="planBreakdownRight">
+            <strong id="ppCubierto">—</strong>
+            <span class="ppFuture" id="ppCubiertoFut"></span>
+          </div>
+        </div>
+        <div class="planBreakdownRow brecha">
+          <span>Brecha a cubrir con PPR</span>
+          <div class="planBreakdownRight">
+            <strong id="ppBrecha">—</strong>
+            <span class="ppFuture" id="ppBrechaFut"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ppSuggestionBlock" id="ppSuggestionBlock">
+        <div class="ppSuggestionLabel">Plan de ahorro PPR · Aportación mensual inicial necesaria</div>
+        <div class="ppSuggestionAmount" id="ppSugAmount">—</div>
+        <div class="ppSuggestionNote" id="ppSugNote">—</div>
+        <div class="ppSuggestionStats">
+          <div class="ppStat">
+            <div class="ppStatLabel">Fondo objetivo</div>
+            <div class="ppStatValue" id="ppFondoObj">—</div>
+            <div class="ppStatSub" id="ppFondoObjHoy"></div>
+          </div>
+          <div class="ppStat">
+            <div class="ppStatLabel">Total aportado</div>
+            <div class="ppStatValue" id="ppTotalAport">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ppCompareBlock">
+        <div class="ppCompareLabel">¿Cuánto puedes aportar hoy? · Compáralo contra tu meta</div>
+        <div class="ppCompareInputRow">
+          <span class="ppComparePrefix">$</span>
+          <input type="number" id="compareAmount" inputmode="numeric" min="0" step="500" placeholder="Ej. 3,000" oninput="onCompareChange()" aria-label="Aportación mensual a comparar" />
+          <span class="ppCompareSuffix">MXN / mes</span>
+        </div>
+        <div id="compareResults" class="hidden">
+          <div class="ppCompareRenta" id="compareRenta">—</div>
+          <div class="ppCompareRentaNote">Renta mensual estimada con esta aportación · pesos de hoy</div>
+          <div class="ppCompareStats">
+            <div class="ppCompareStat">
+              <div class="ppCompareStatLabel">Fondo al retiro</div>
+              <div class="ppCompareStatValue" id="compareFondo">—</div>
+              <div class="ppCompareStatSub" id="compareFondoHoy"></div>
+            </div>
+            <div class="ppCompareStat">
+              <div class="ppCompareStatLabel">Te faltarían</div>
+              <div class="ppCompareStatValue" id="compareFaltan">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ppCtaBlock">
+        <p class="ppCtaNote">Ya conoces tu número. <em>El siguiente paso es personalizar tu plan.</em></p>
+        <button type="button" class="btn" id="goToFullPlanBtn" onclick="goToFullPlan()">
+          Ver plan completo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <main id="retirementSection" class="hidden">
+    <!-- ══ PASO 2: TU PLAN PPR ══════════════════════════════════════════ -->
+    <section class="card" aria-labelledby="inputsTitle" data-reveal>
+      <div class="cardHeader">
+        <div class="cardHeaderRow">
+          <span class="pprStepBadge">Paso 2</span>
+          <h2 id="inputsTitle" style="margin:0">Tu Plan PPR</h2>
+        </div>
+        <p>Ajusta el plazo, el tipo de plan y la aportación. La cantidad sugerida ya viene pre-calculada según tu meta.</p>
+      </div>
+
+      <div class="pprSuggestedBox hidden" id="pprSuggestedBox">
+        <div>
+          <div class="pprSuggestedLabel">Aportación PPR sugerida para cubrir tu meta</div>
+          <div class="pprSuggestedAmount" id="pprSuggestedAmt">—</div>
+          <div class="pprSuggestedNote" id="pprSuggestedNote">Basado en 10% anual y un plazo de 20 años. Ajústala abajo si quieres cambiarla.</div>
+        </div>
+      </div>
+
+      <div class="cardBody">
+
+        <div class="calcStepper" id="calcStepper" aria-label="Pasos del cotizador">
+          <div class="stepItem is-active" id="step1" aria-current="step">
+            <div class="stepBubble">1</div>
+            <span class="stepLabel">Tus datos</span>
+          </div>
+          <div class="stepItem" id="step2">
+            <div class="stepBubble">2</div>
+            <span class="stepLabel">Proyección</span>
+          </div>
+          <div class="stepItem" id="step3">
+            <div class="stepBubble">3</div>
+            <span class="stepLabel">Cotización</span>
+          </div>
+        </div>
+
+        <form id="calcForm" novalidate>
+          <div class="field" id="clientNameField">
+            <label for="clientName">Nombre</label>
+            <input id="clientName" name="clientName" type="text"
+                   placeholder="Ej. Carlos Ramírez" aria-describedby="clientNameHint clientNameError" required />
+            <div class="hint" id="clientNameHint">Lo usamos para personalizar tu proyección y tu PDF.</div>
+            <div class="error" id="clientNameError" role="alert">Ingresa tu nombre.</div>
+          </div>
+
+          <div class="field" id="ageField">
+            <div class="fieldLabelRow">
+              <label for="age">Edad actual (años)</label>
+              <span class="tooltipWrap">
+                <button type="button" class="tooltipBtn" aria-label="¿Por qué importa tu edad?">?</button>
+                <span class="tooltipBox" role="tooltip">Tu edad determina cuántos años tienes para acumular. Entre antes empieces, más tiempo trabaja el interés compuesto a tu favor.</span>
+              </span>
+            </div>
+            <input id="age" name="age" type="number" inputmode="numeric" min="18" max="70" step="1"
+                   placeholder="Ej. 35" aria-describedby="ageHint ageError" required />
+            <div class="hint" id="ageHint">Entre 18 y 70.</div>
+            <div class="error" id="ageError" role="alert">Tu edad debe estar entre 18 y 70.</div>
+          </div>
+
+          <div class="field" id="retireField">
+            <label for="retireAge">Edad de retiro objetivo</label>
+            <select id="retireAge" name="retireAge" aria-describedby="retireHint">
+              <option value="60">60 años</option>
+              <option value="61">61 años</option>
+              <option value="62">62 años</option>
+              <option value="63">63 años</option>
+              <option value="64">64 años</option>
+              <option value="65" selected>65 años</option>
+              <option value="66">66 años</option>
+              <option value="67">67 años</option>
+              <option value="68">68 años</option>
+              <option value="69">69 años</option>
+              <option value="70">70 años</option>
+              <option value="71">71 años</option>
+              <option value="72">72 años</option>
+              <option value="73">73 años</option>
+              <option value="74">74 años</option>
+              <option value="75">75 años</option>
+            </select>
+            <div class="hint" id="retireHint">Selecciona entre 60 y 75 años.</div>
+          </div>
+
+          <div class="field" id="saveField">
+            <div class="fieldLabelRow">
+              <label for="monthly">Ahorro mensual (MXN)</label>
+              <span class="tooltipWrap">
+                <button type="button" class="tooltipBtn" aria-label="¿Cuánto debo ahorrar?">?</button>
+                <span class="tooltipBox" role="tooltip">Es tu aportación mensual al PPR. El mínimo es $2,000/mes para plazos de 15 años o más, y $3,000/mes para plazos menores.</span>
+              </span>
+            </div>
+            <input id="monthly" name="monthly" type="number" inputmode="decimal" min="1" step="100"
+                   placeholder="Ej. 3000" aria-describedby="saveHint saveError" required />
+            <div class="hint" id="saveHint">Sólo números. Ej: 3000 (sin comas).</div>
+            <div class="error" id="saveError" role="alert">Tu ahorro mensual no cumple con el mínimo según el plazo.</div>
+          </div>
+
+          <div class="field" id="growthModeField">
+            <label for="growthMode">Incremento anual de aportación</label>
+            <select id="growthMode" name="growthMode" aria-describedby="growthModeHint growthModeError">
+              <option value="with_growth" selected>Con incremento por inflación</option>
+              <option value="no_growth">Sin incremento anual</option>
+            </select>
+            <div class="hint" id="growthModeHint">Elige si tu aportación mensual crece año con año o se mantiene fija.</div>
+            <div class="error" id="growthModeError" role="alert">Selecciona una opción válida de incremento.</div>
+          </div>
+
+          <div class="field" id="planField">
+            <div class="fieldLabelRow">
+              <label for="planYears">Plazo de aportación</label>
+              <span class="tooltipWrap">
+                <button type="button" class="tooltipBtn" aria-label="¿Qué es el plazo?">?</button>
+                <span class="tooltipBox" role="tooltip">Son los años que aportarás mensualmente. Al terminar el plazo, tu fondo sigue creciendo con rendimientos hasta tu edad de retiro.</span>
+              </span>
+            </div>
+            <select id="planYears" name="planYears" aria-describedby="planHint planError">
+              <option value="10">10 años</option>
+              <option value="11">11 años</option>
+              <option value="12">12 años</option>
+              <option value="13">13 años</option>
+              <option value="14">14 años</option>
+              <option value="15" selected>15 años</option>
+              <option value="16">16 años</option>
+              <option value="17">17 años</option>
+              <option value="18">18 años</option>
+              <option value="19">19 años</option>
+              <option value="20">20 años</option>
+              <option value="21">21 años</option>
+              <option value="22">22 años</option>
+              <option value="23">23 años</option>
+              <option value="24">24 años</option>
+              <option value="25">25 años</option>
+            </select>
+            <div class="hint" id="planHint">Menor a 15 años: mínimo $3,000/mes. 15 o más: mínimo $2,000/mes.</div>
+            <div class="error" id="planError" role="alert">Selecciona un plazo válido.</div>
+          </div>
+
+          <div class="field" id="planTypeField">
+            <div class="fieldLabelRow">
+              <label for="planType">Tipo de plan</label>
+              <span class="tooltipWrap">
+                <button type="button" class="tooltipBtn" aria-label="¿Deducible o no deducible?">?</button>
+                <span class="tooltipBox" role="tooltip">Deducible (Art. 151): deduces tus aportaciones del ISR con topes de ley. No deducible (Art. 93): los retiros al final están exentos. Cuál conviene depende de tu perfil fiscal.</span>
+              </span>
+            </div>
+            <select id="planType" name="planType" aria-describedby="planTypeHint planTypeError">
+              <option value="no_deducible" selected>No deducible: Art. 93 ISR</option>
+              <option value="deducible">Deducible: Art. 151 ISR</option>
+            </select>
+            <div class="hint" id="planTypeHint">Si eliges deducible, la devolución del SAT se calcula sólo durante los años de aportación del plazo elegido y se reinvierte.</div>
+            <div class="error" id="planTypeError" role="alert">Selecciona un tipo de plan válido.</div>
+          </div>
+
+          <div class="field hidden" id="isrField">
+            <label for="isrRate">ISR de retención (%)</label>
+            <input id="isrRate" name="isrRate" type="number" inputmode="decimal" min="1" max="45" step="0.1"
+                   placeholder="Ej. 30" aria-describedby="isrHint isrError" />
+            <div class="hint" id="isrHint">Sólo para plan deducible. Ejemplo: 30 = 30%.</div>
+            <div class="error" id="isrError" role="alert">Ingresa un ISR válido entre 1% y 45%.</div>
+          </div>
+
+          <div class="fieldRow">
+            <div class="field" id="extraField">
+              <label for="extraAnnual">Aportación adicional anual (MXN)</label>
+              <input id="extraAnnual" name="extraAnnual" type="number" inputmode="decimal" min="0" step="1000"
+                     placeholder="Ej. 12000" aria-describedby="extraHint extraError" />
+              <div class="hint" id="extraHint">Opcional. Usa 0 si no harás aportaciones adicionales.</div>
+              <div class="error" id="extraError" role="alert">La aportación adicional no puede ser negativa.</div>
+            </div>
+
+            <div class="field" id="extraStartYearField">
+              <label for="extraStartYear">Aplicar desde el año</label>
+              <select id="extraStartYear" name="extraStartYear" aria-describedby="extraStartYearHint extraStartYearError">
+                <option value="0" selected>No aplica</option>
+              </select>
+              <div class="hint" id="extraStartYearHint">Selecciona el primer año del plan para esta aportación.</div>
+              <div class="error" id="extraStartYearError" role="alert">Selecciona un año inicial válido.</div>
+            </div>
+
+            <div class="field" id="extraEndYearField">
+              <label for="extraEndYear">Aplicar hasta el año</label>
+              <select id="extraEndYear" name="extraEndYear" aria-describedby="extraEndYearHint extraEndYearError">
+                <option value="0" selected>No aplica</option>
+              </select>
+              <div class="hint" id="extraEndYearHint">Selecciona el último año del plan para esta aportación.</div>
+              <div class="error" id="extraEndYearError" role="alert">Selecciona un año final válido.</div>
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <button type="button" class="btn" id="btnCalc">Calcular</button>
+
+            <div class="configGrid" id="configText">
+              <span class="chip">Edad de retiro: <strong id="chipRetire">65 años</strong></span>
+              <span class="chip">Plazo: <strong id="chipPlan">15 años</strong></span>
+              <span class="chip">Plan: <strong id="chipPlanType">No deducible</strong></span>
+              <span class="chip">Escenario moderado: <strong>10%</strong></span>
+              <span class="chip">Aportación: <strong id="chipGrowth">Mensual con incremento</strong></span>
+              <span class="chip">Inflación: <strong>4.5%</strong></span>
+            </div>
+
+            <div class="error" id="globalError" role="alert" style="display:none;">
+              Hay detalles por corregir arriba. Ajusta tus datos y listo.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══ RESULTADOS ═══════════════════════════════════════════════════ -->
+    <section class="card" aria-labelledby="resultsTitle" data-reveal data-delay="1" style="margin-top:26px">
+      <div class="cardHeader">
+        <h2 id="resultsTitle">Tus resultados</h2>
+        <p id="resultsSubtitle">Dale a <strong>Calcular</strong> para ver tu estimación.</p>
+      </div>
+
+      <div class="cardBody">
+        <div id="resultsPreview" class="resultsPreview" aria-label="Resumen de lo que verás al calcular">
+          <article class="resultsPreviewCard">
+            <span class="resultsPreviewKicker">Fondo</span>
+            <strong class="resultsPreviewTitle">Tu acumulado proyectado</strong>
+            <p class="resultsPreviewText">Verás cuánto podrías construir hacia tu edad objetivo con el plazo y la aportación que elijas.</p>
+          </article>
+          <article class="resultsPreviewCard">
+            <span class="resultsPreviewKicker">Pensión</span>
+            <strong class="resultsPreviewTitle">Ingreso mensual estimado</strong>
+            <p class="resultsPreviewText">La salida principal te ayuda a entender qué pensión mensual podría representar tu fondo estimado.</p>
+          </article>
+          <article class="resultsPreviewCard">
+            <span class="resultsPreviewKicker">Cotización</span>
+            <strong class="resultsPreviewTitle">PDF listo para compartir</strong>
+            <p class="resultsPreviewText">Al terminar podrás descargar una cotización ordenada para revisarla con calma o comentarla conmigo.</p>
+          </article>
+        </div>
+
+        <div id="resultSummaryStrip" class="resultSummaryStrip hidden" aria-live="polite" aria-atomic="true">
+          <div class="resultSummaryCard">
+            <span class="resultSummaryLabel">Nombre</span>
+            <div class="resultSummaryValue" id="summaryClient">—</div>
+          </div>
+          <div class="resultSummaryCard">
+            <span class="resultSummaryLabel">Edad objetivo</span>
+            <div class="resultSummaryValue" id="summaryRetireAge">—</div>
+          </div>
+          <div class="resultSummaryCard">
+            <span class="resultSummaryLabel">Plazo de aportación</span>
+            <div class="resultSummaryValue" id="summaryPlanYears">—</div>
+          </div>
+          <div class="resultSummaryCard">
+            <span class="resultSummaryLabel">Configuración</span>
+            <div class="resultSummaryValue" id="summaryPlanMode">—</div>
+          </div>
+        </div>
+
+        <div id="mainCopy" class="copyBlock hidden" aria-live="polite" aria-atomic="true"></div>
+
+        <div id="resultsArea" class="resultsStack hidden" aria-live="polite" aria-atomic="true">
+
+          <article class="scenarioBlock" aria-labelledby="sc10Title">
+            <div class="sbHead">
+              <div class="sbTitleWrap">
+                <h3 class="sbTitle" id="sc10Title">Escenario moderado</h3>
+              </div>
+              <div class="rateTag" id="sc10_rateTag">10% anual</div>
+            </div>
+
+            <div class="sbBody">
+              <div class="sbFooterLine">Proyección de crecimiento a largo plazo, con la variación natural del mercado en el camino.</div>
+
+              <div class="scenarioTop">
+                <div class="twoCols">
+                  <div class="metricCard">
+                    <div class="metricLabel">Tu fondo de retiro es</div>
+                    <div class="metricValue" id="sc10_future">—</div>
+                    <div class="metricSub" id="sc10_yearsline">—</div>
+                  </div>
+
+                  <div class="pensionBlock">
+                    <div class="pensionTitle">Pensión mensual estimada</div>
+                    <div class="pensionGrid">
+                      <div class="pensionItem">
+                        <div class="pensionAmount" id="sc10_futurePension">—</div>
+                        <div class="pensionNote">Monto mensual estimado</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <aside class="chartCard" aria-label="Crecimiento del capital proyectado">
+                  <div class="chartHead">
+                    <div>
+                      <div class="chartTitle">Evolución del fondo</div>
+                    </div>
+                  </div>
+                  <div class="chartCanvasWrap">
+                    <canvas id="sc10_growthChart" aria-label="Gráfico de crecimiento del fondo"></canvas>
+                  </div>
+                  <div class="chartMeta">
+                    <div class="chartMetaItem">
+                      <span class="chartMetaLabel">Aportaciones acumuladas</span>
+                      <strong class="chartMetaValue" id="sc10_chartAportado">—</strong>
+                    </div>
+                    <div class="chartMetaItem highlight">
+                      <span class="chartMetaLabel">Valor proyectado total</span>
+                      <strong class="chartMetaValue" id="sc10_chartTotal">—</strong>
+                    </div>
+                  </div>
+                  <div class="chartHint" id="sc10_chartHint">—</div>
+                </aside>
+              </div>
+
+              <div class="taxBox" id="sc10_taxBox">
+                <div><strong>Beneficio fiscal SAT:</strong> <span id="sc10_taxStatus">No aplica (plan no deducible).</span></div>
+                <div id="sc10_taxYear1">Devolución primer año: —</div>
+                <div id="sc10_taxFuture">Devolución acumulada del plazo: —</div>
+              </div>
+
+              <div class="bonusBox" id="sc10_bonusBox">
+                <div><strong>Bono aplicado:</strong> <span id="sc10_bonusRate">—</span></div>
+                <div id="sc10_bonusCredit">Bono acreditado el primer año: —</div>
+                <div id="sc10_bonusFuture">El bono ya está integrado a tu fondo total.</div>
+              </div>
+
+              <div class="waitBox">
+                <div class="waitTitle">¿Qué pasa si te esperas 10 años?</div>
+                <div class="waitText" id="sc10_waitText">—</div>
+                <div class="waitText" id="sc10_waitCut">—</div>
+                <div class="barWrap" aria-label="Barra de recorte por esperar">
+                  <div class="bar" id="sc10_bar"></div>
+                </div>
+              </div>
+
+              <div class="detailActions">
+                <button type="button" class="detailBtn" id="sc10_breakdownToggle" aria-expanded="false" aria-controls="sc10_breakdownWrap">
+                  Ver desglose
+                </button>
+              </div>
+
+              <div class="tableWrap breakdownWrap hidden" id="sc10_breakdownWrap">
+                <table class="breakdownTable" aria-label="Desglose anual escenario moderado">
+                  <thead>
+                    <tr>
+                      <th>Año</th>
+                      <th>Edad</th>
+                      <th>Aportación anual</th>
+                      <th>Aportación acumulada</th>
+                      <th>Saldo del fondo</th>
+                      <th>Saldo disponible</th>
+                      <th>Beneficio deducibilidad</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sc10_breakdownBody">
+                    <tr><td class="muted" colspan="7">Calcula para ver el desglose.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ── AFORE + PPR ── -->
+        <div class="card aforeCard hidden" id="aforeCard" aria-labelledby="aforeCardTitle">
+          <div class="cardHeader">
+            <h2 id="aforeCardTitle">Panorama completo: AFORE + PPR</h2>
+            <p>Cuánto cubre tu AFORE y cuánto cubre tu PPR — en pesos de hoy.</p>
+          </div>
+          <div class="cardBody">
+
+            <div id="aforeNoDataMsg" style="color:var(--slate);font-size:.9rem;padding:8px 0">
+              Regresa al <strong>Paso 1</strong> e ingresa tus datos de AFORE para ver el panorama completo.
+            </div>
+
+            <div id="aforeResults" class="hidden">
+              <div id="aforeSemanasChip" class="aforeSemanasChip ok" aria-live="polite"></div>
+
+              <div class="aforeResultGrid">
+                <div class="aforeStatCard">
+                  <div class="aforeStatVal" id="aforeStatSaldo">—</div>
+                  <div class="aforeStatLabel">Saldo AFORE proyectado al retiro</div>
+                </div>
+                <div class="aforeStatCard">
+                  <div class="aforeStatVal" id="aforeStatRentaFut">—</div>
+                  <div class="aforeStatLabel">Pensión AFORE (pesos futuros)</div>
+                </div>
+                <div class="aforeStatCard">
+                  <div class="aforeStatVal" id="aforeStatRentaHoy">—</div>
+                  <div class="aforeStatLabel">Equivalente en pesos de hoy</div>
+                </div>
+              </div>
+
+              <div class="aforeBrecha" id="aforeBrecha">
+                <div class="aforeBrechaTitle">Panorama completo de tu retiro</div>
+                <div class="aforeBrechaRow teal">
+                  <span>Tu AFORE cubre (pesos de hoy)</span>
+                  <strong id="brechaAfore">—</strong>
+                </div>
+                <div class="aforeBrechaRow blue">
+                  <span>Tu PPR cubre (pesos de hoy)</span>
+                  <strong id="brechaPPR">—</strong>
+                </div>
+                <div class="aforeBrechaRow total">
+                  <span>Total cubierto al retiro</span>
+                  <strong id="brechaTotal">—</strong>
+                </div>
+              </div>
+
+              <p style="font-size:.78rem;color:var(--slate-2);margin-top:12px;line-height:1.6">
+                Proyección con tasa Siefore del 10% anual y renta vitalicia al 4.8%. Estimación educativa, no garantizada.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── BLINDA TU INVERSIÓN · seguro de vida ── -->
+        <div class="card vidaCard hidden" id="vidaCard" aria-labelledby="vidaCardTitle">
+          <div class="cardHeader">
+            <h2 id="vidaCardTitle">Blinda tu inversión</h2>
+            <p>Estás construyendo un patrimonio. Un seguro de vida asegura que llegue completo a tu familia, aunque tú no llegues.</p>
+          </div>
+          <div class="cardBody">
+
+            <div class="vidaControls">
+              <div class="vidaToggle" role="radiogroup" aria-label="Sexo para la tarifa del seguro de vida">
+                <button type="button" class="vidaToggleBtn is-active" id="vidaGenderHombre" role="radio" aria-checked="true" data-vida-gender="hombre">Hombre</button>
+                <button type="button" class="vidaToggleBtn" id="vidaGenderMujer" role="radio" aria-checked="false" data-vida-gender="mujer">Mujer</button>
+              </div>
+              <span class="vidaAgeChip" id="vidaAgeChip">Tarifa para 35 años</span>
+            </div>
+
+            <div class="vidaPriceBox" aria-live="polite">
+              <span class="vidaPriceKicker">Blinda tu inversión desde</span>
+              <div class="vidaPriceValue" id="vidaPrice">—<span>/ mes</span></div>
+              <div class="vidaCoverageLine">
+                <span class="vidaCoverageLabel">por una suma asegurada de</span>
+                <strong class="vidaCoverageValue" id="vidaCoverage">—</strong>
+              </div>
+              <div class="vidaPriceMeta" id="vidaPriceMeta">—</div>
+            </div>
+
+            <div class="vidaTierRow" id="vidaTierRow">
+              <div class="vidaTier">
+                <span class="vidaTierTag">Protección amplia</span>
+                <strong class="vidaTierPrice" id="vidaTierBase">—</strong>
+                <p class="vidaTierCopy">Fallecimiento, accidente e invalidez total y permanente.</p>
+              </div>
+              <div class="vidaTier is-plus">
+                <span class="vidaTierTag">Máximo respaldo</span>
+                <strong class="vidaTierPrice" id="vidaTierPlus">—</strong>
+                <p class="vidaTierCopy">Suma pérdidas orgánicas y devolución de primas por permanencia.</p>
+              </div>
+            </div>
+
+            <div class="vidaDelayBox hidden" id="vidaDelayBox">
+              <span class="vidaDelayTitle">La edad es el precio real</span>
+              <p class="vidaDelayText" id="vidaDelayText">—</p>
+            </div>
+
+            <a class="vidaCta" id="vidaCta" href="https://wa.me/525561307667" target="_blank" rel="noopener">
+              Quiero blindar mi inversión
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <p class="vidaNote" id="vidaNote">
+              Cifras de referencia para tu edad y sexo. La prima definitiva depende del producto elegido, cuestionario médico, ocupación, edad exacta y criterios de suscripción de la aseguradora.
+            </p>
+
+          </div>
+        </div>
+
+        <!-- ── URGENCIA ── -->
+        <div class="urgencyCard" id="urgencyCard" aria-live="polite">
+          <div>
+            <div class="urgencyCardTitle">Tu fondo proyectado puede ser mayor si empiezas hoy</div>
+            <p class="urgencyCardBody">
+              Cada mes que esperas, <strong>la inflación erosiona tu poder adquisitivo</strong> y pierdes meses de interés compuesto. Agenda tu asesoría gratuita y diseñamos juntos el plan exacto para llegar a tu objetivo.
+            </p>
+          </div>
+          <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20ya%20hice%20mi%20proyecci%C3%B3n%20de%20retiro%20y%20quiero%20mi%20plan%20personalizado"
+             target="_blank" rel="noopener" id="urgencyCardCta"
+             class="urgencyCardCta" aria-label="Agendar mi asesoría por WhatsApp">
+            Quiero mi plan personalizado
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="quoteGate" id="quoteGate">
+          <div>
+            <div class="quoteGateTitle">¿Listo para ver tu plan en detalle?</div>
+            <div class="quoteGateText">Descarga tu cotización personalizada en PDF: desglose anual, evolución del fondo y pensión mensual estimada en un documento listo para compartir.</div>
+          </div>
+
+          <div class="quoteGateActions">
+            <button type="button" class="btn pdfBtn" id="quoteDownloadBtn" disabled>Descargar cotización</button>
+            <div class="quoteGateNote" id="quoteGateNote">Completa la calculadora para habilitar la descarga de tu cotización.</div>
+          </div>
+        </div>
+
+        <div class="disclaimer" role="note" aria-label="Aviso legal">
+          <strong>Estimación educativa.</strong> No constituye asesoría financiera ni una oferta contractual. Los rendimientos y la inflación pueden variar y no se garantizan. La cotización formal se emite con la aseguradora una vez revisado tu perfil.
+        </div>
+
+        <section class="faqSection" aria-labelledby="faqTitle">
+          <div class="faqHead">
+            <h2 id="faqTitle">Preguntas frecuentes</h2>
+            <p>Lo que más me preguntan antes de arrancar un Plan Personal de Retiro.</p>
+          </div>
+          <div class="faqList">
+            <details class="faqItem" open data-reveal>
+              <summary>¿Puedo cambiar después mi aportación mensual?</summary>
+              <div class="faqBody">
+                Sí. A partir del mes 19 puedes incrementar o disminuir tu aportación según cómo evolucione tu situación.
+              </div>
+            </details>
+            <details class="faqItem" data-reveal data-delay="1">
+              <summary>¿El rendimiento está garantizado?</summary>
+              <div class="faqBody">
+                No. Es una proyección estimada con un 10% anual; el resultado depende de los fondos donde se invierta tu dinero. Por eso vale la pena revisarlo en una asesoría personalizada, para explicarte los detalles.
+              </div>
+            </details>
+            <details class="faqItem" data-reveal data-delay="2">
+              <summary>¿Qué pasa si detengo mis aportaciones?</summary>
+              <div class="faqBody">
+                Después del mes 19 puedes suspenderlas si lo necesitas. El saldo acumulado sigue invertido mientras decides retomarlas.
+              </div>
+            </details>
+            <details class="faqItem" data-reveal data-delay="3">
+              <summary>¿Qué inflación usa esta calculadora?</summary>
+              <div class="faqBody">
+                Una inflación anual del <strong>4.5%</strong>. Se usa para dos cosas: traer los montos futuros a pesos de hoy y, si lo eliges, para que tu aportación crezca al mismo ritmo cada año.
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <footer class="contactFooter">
+          <strong>Mar Vazquez Finanzas</strong>
+          <span>WhatsApp: <a href="https://wa.me/525561307667" target="_blank" rel="noopener">55 6130 7667</a></span>
+          <span>Correo: <a href="mailto:marvazquez@asesoriaconestretegia.com">marvazquez@asesoriaconestretegia.com</a></span>
+          <div class="footerPrivacy">
+            Aviso de privacidad: los datos que compartes en esta herramienta se usan únicamente para generar tu cotización, dar seguimiento a tu solicitud y enviarte información sobre tu proyección. No se comparten con terceros sin tu autorización. Consulta el <a href="privacidad.html">aviso de privacidad completo</a>.
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+  </div>
+</div>
+
+<!-- ======================= BARRA STICKY ======================= -->
+<div class="retiroCta" id="retiroCta" aria-label="Barra de acción rápida">
+  <div class="retiroCtaText">
+    <strong>Tu retiro, tu decisión</strong>
+    <span>Asesoría gratuita · Sin compromiso</span>
+  </div>
+  <div class="retiroCtaActions">
+    <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20vi%20el%20cotizador%20de%20retiro%20y%20quiero%20una%20asesor%C3%ADa%20personalizada"
+       target="_blank" rel="noopener"
+       class="retiroCtaBtn ghost" aria-label="Chatear por WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.25a9.75 9.75 0 0 0-8.33 14.82L2.5 21.5l4.57-1.13A9.75 9.75 0 1 0 12 2.25Z" opacity=".28"/><path d="M8.86 7.74c-.25-.56-.51-.57-.75-.58h-.64c-.22 0-.57.08-.87.4-.3.31-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.22 2.28 3.66 5.63 4.98 2.78 1.1 3.35.88 3.96.82.61-.06 1.96-.8 2.24-1.57.28-.77.28-1.43.2-1.57-.08-.14-.3-.22-.64-.39-.34-.17-1.96-.96-2.27-1.07-.3-.11-.52-.17-.74.17-.22.34-.85 1.07-1.04 1.29-.19.22-.38.25-.72.08-.34-.17-1.42-.52-2.7-1.66-.99-.88-1.65-1.97-1.84-2.3-.19-.34-.02-.52.14-.69.15-.15.34-.39.51-.58.17-.19.22-.34.34-.56.11-.22.06-.42-.03-.59-.08-.17-.74-1.87-1.03-2.5Z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20quiero%20agendar%20mi%20asesor%C3%ADa%20de%20retiro" target="_blank" rel="noopener"
+       class="retiroCtaBtn gold" aria-label="Agendar asesoría gratuita">
+      Agendar asesoría
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ======================= MODAL DE COTIZACIÓN ======================= -->
+<div class="quoteModalBackdrop hidden" id="quoteModalBackdrop" aria-hidden="true">
+  <div class="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+    <button type="button" class="quoteModalClose" id="quoteModalClose" aria-label="Cerrar ventana">×</button>
+    <div class="quoteModalTitle" id="quoteModalTitle">Antes de descargar tu cotización</div>
+    <p class="quoteModalText">Compárteme tus datos de contacto y da clic en <strong>Ver mi cotización</strong>. Con ellos personalizo la propuesta y te doy seguimiento.</p>
+
+    <div class="quoteGateGrid">
+      <div class="field" id="quoteNameField">
+        <label for="quoteClientName">Nombre completo</label>
+        <input id="quoteClientName" name="quoteClientName" type="text"
+               placeholder="Ej. Carlos Ramírez" aria-describedby="quoteNameHint quoteNameError" />
+        <div class="hint" id="quoteNameHint">Como aparecerá en tu cotización.</div>
+        <div class="error" id="quoteNameError" role="alert">Ingresa tu nombre.</div>
+      </div>
+
+      <div class="field" id="quoteWhatsappField">
+        <label for="quoteWhatsapp">WhatsApp</label>
+        <input id="quoteWhatsapp" name="quoteWhatsapp" type="tel" inputmode="tel"
+               placeholder="Ej. 5561307667" aria-describedby="quoteWhatsappHint quoteWhatsappError" />
+        <div class="hint" id="quoteWhatsappHint">10 dígitos o tu número completo con lada.</div>
+        <div class="error" id="quoteWhatsappError" role="alert">Ingresa un WhatsApp válido.</div>
+      </div>
+
+      <div class="field" id="quoteEmailField">
+        <label for="quoteEmail">Correo electrónico</label>
+        <input id="quoteEmail" name="quoteEmail" type="email" inputmode="email"
+               placeholder="Ej. carlos@correo.com" aria-describedby="quoteEmailHint quoteEmailError" />
+        <div class="hint" id="quoteEmailHint">Aquí te doy seguimiento a tu propuesta.</div>
+        <div class="error" id="quoteEmailError" role="alert">Ingresa un correo válido.</div>
+      </div>
+
+      <div class="field" id="quoteIncomeField">
+        <label for="quoteIncome">Ingresos mensuales</label>
+        <select id="quoteIncome" name="quoteIncome" aria-describedby="quoteIncomeHint quoteIncomeError">
+          <option value="" disabled selected>Selecciona un rango</option>
+          <option value="menos de $15,000">Menos de $15,000 MXN</option>
+          <option value="$15,000 a $30,000">Entre $15,000 y $30,000 MXN</option>
+          <option value="$30,000 a $60,000">Entre $30,000 y $60,000 MXN</option>
+          <option value="más de $60,000">Más de $60,000 MXN</option>
+        </select>
+        <div class="hint" id="quoteIncomeHint">Me ayuda a ajustar la propuesta a tu perfil.</div>
+        <div class="error" id="quoteIncomeError" role="alert">Selecciona tu rango de ingresos.</div>
+      </div>
+    </div>
+
+    <div class="quoteModalActions">
+      <div class="error" id="quoteContactError" role="alert" style="display:none;">Completa tu nombre, WhatsApp, correo e ingresos para ver tu cotización.</div>
+      <div id="quoteQualifyWarning" aria-live="polite" style="display:none;align-items:flex-start;gap:8px;padding:12px 14px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:14px;font-size:.84rem;font-weight:600;color:#9A3412;line-height:1.55;"></div>
+      <div id="quotePhoneStatus" aria-live="polite" style="display:none;font-size:.8rem;font-weight:600;"></div>
+      <label class="consent" for="quoteConsent" style="margin:0">
+        <input type="checkbox" id="quoteConsent" checked />
+        <span>Acepto el <a href="privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a> y que Mar Vazquez me contacte para dar seguimiento a esta cotización.</span>
+      </label>
+      <button type="button" class="btn pdfBtn" id="quoteModalSubmitBtn">Ver mi cotización</button>
+      <div class="quoteGateNote">Tus datos son necesarios para personalizar la cotización y darte seguimiento.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:16px"><img class="mark" src="assets/logo.svg" width="40" height="40" alt="Mar Vazquez Finanzas" />Mar Vazquez Finanzas</a>
+        <p style="max-width:340px;font-size:.93rem;color:#A9BADF;margin-top:10px">Inversiones accesibles, simples y humanas para construir patrimonio con confianza y claridad.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/marvazquezfinanzas" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/share/1BDCZdeMmg/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1Z"/></svg></a>
+          <a href="https://www.tiktok.com/@marvazquezfinanzas" target="_blank" rel="noopener" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.7 3.9 4 4v3c-1.5 0-2.9-.5-4-1.2V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1V12c-.3-.1-.7-.2-1-.2a3 3 0 1 0 3 3V3h3Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul class="foot-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="calculadora.html">Cotizador de retiro</a></li>
+          <li><a href="webinar.html">Webinar PLUS</a></li>
+          <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/525561307667" target="_blank" rel="noopener">WhatsApp: 55 6130 7667</a></li>
+          <li><a href="mailto:marvazquez@asesoriaconestretegia.com">marvazquez@asesoriaconestretegia.com</a></li>
+          <li><a href="index.html#contacto">Solicitar propuesta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="badges">
+        <span>✔ Certificada CNSF</span><span>✔ Formadora CONDUSEF</span><span>✔ Nominada Rankia</span>
+      </div>
+      © <span id="year">2026</span> Mar Vazquez Finanzas · Asesoría con Estrategia. Todos los derechos reservados. · <a href="privacidad.html" style="color:inherit;text-decoration:underline">Aviso de Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/525561307667?text=Hola%20Mar%2C%20tengo%20una%20duda%20sobre%20el%20cotizador%20de%20retiro" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.1Z"/></svg>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.11.4/bundle/libphonenumber-max.js" defer></script>
+<script src="js/calculadora.js" defer></script>
+</body>
+</html>

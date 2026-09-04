@@ -21,7 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.11.4/bundle/libphonenumber-max.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <!-- SDK de Supabase retirado: la escritura está apagada y era un script
+       bloqueante en la página más pesada del sitio. Reponerlo si se reactiva. -->
 
   <style>
     /* ══════════════════════════════════════════
@@ -2718,24 +2719,29 @@
 
         btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 0.7s linear infinite"><path d="M21 12a9 9 0 1 1-3.1-6.8"/></svg> Enviando…';
 
-        const SUPABASE_URL      = 'https://waojkmqvyorojgaymnee.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indhb2prbXF2eW9yb2pnYXltbmVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDYyODMsImV4cCI6MjA5NDE4MjI4M30.HNwmN_fw5_5a2Mmimqlc1s0crCtO9YGX5K0s0ulZNoA';
-        const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        /* Supabase APAGADO por decisión del cliente (2026-09-03). El único
+           destino de los leads es el webhook de Make, y desde ahí van a
+           Google Sheets. Para reactivarlo: poner GUARDAR_EN_SUPABASE = true
+           y volver a incluir el SDK en el <head>. */
+        const GUARDAR_EN_SUPABASE = false;
 
-        const payload = {
-          nombre,
-          correo:         email,
-          whatsapp:       lada + tel,
-          edad_actual:    edad || null,
-          ahorro_mensual: inversion || null,
-          fuente:         'ppr',
-          estatus:        'nuevo',
-          notas:          `Profesión: ${profesion} | Ingresos: ${ingresos}`,
-        };
-
-        try {
-          await db.from('leads').insert([payload]);
-        } catch (_) { /* fail silently */ }
+        if (GUARDAR_EN_SUPABASE) {
+          const SUPABASE_URL      = 'https://waojkmqvyorojgaymnee.supabase.co';
+          const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indhb2prbXF2eW9yb2pnYXltbmVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDYyODMsImV4cCI6MjA5NDE4MjI4M30.HNwmN_fw5_5a2Mmimqlc1s0crCtO9YGX5K0s0ulZNoA';
+          const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          try {
+            await db.from('leads').insert([{
+              nombre,
+              correo:         email,
+              whatsapp:       lada + tel,
+              edad_actual:    edad || null,
+              ahorro_mensual: inversion || null,
+              fuente:         'ppr',
+              estatus:        'nuevo',
+              notas:          `Profesión: ${profesion} | Ingresos: ${ingresos}`,
+            }]);
+          } catch (_) { /* fail silently */ }
+        }
 
         try {
           await fetch('https://hook.us2.make.com/8avpyry2d1t24xjgweav2rnjpc3s11t6', {
@@ -2763,7 +2769,7 @@
         // que el Pixel registre el Lead antes de cambiar de página.
         var nombreParam = encodeURIComponent((nombre || '').split(' ')[0] || '');
         setTimeout(function () {
-          window.location.href = './gracias-plus.html' + (nombreParam ? ('?nombre=' + nombreParam) : '');
+          window.location.href = './gracias.html' + (nombreParam ? ('?nombre=' + nombreParam) : '');
         }, 600);
       });
     })();

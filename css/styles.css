@@ -97,6 +97,78 @@ h2.title{font-size:clamp(2rem,4.8vw,3.2rem);font-weight:700;margin-bottom:18px;l
   background-size:26px 26px;
 }
 
+/* ============ FONDO DE VIDEO · SOLO "Qué hago por ti" ============
+   Todo va con scope de id a propósito: .dotgrid la usan dos secciones y este
+   video debe vivir únicamente en #servicios. El id (100) gana a .dotgrid (10),
+   así que aquí se apaga la trama de puntos y el video ocupa su lugar. */
+#servicios{
+  position:relative;overflow:hidden;background-image:none;background-color:var(--white);
+
+  /* Dónde vive el recuadro DENTRO del clip, medido sobre los 3852×2152 del
+     archivo: borde izq. 444px, borde sup. 372px, 954×1467 de tamaño. Son
+     fracciones del video, no de la sección — por eso van sin unidad. */
+  --frame-x:.1153;
+  --frame-y:.1729;
+  --frame-w:.2477;
+  --frame-h:.6817;
+
+  /* Dónde queremos que caiga: sobre la tarjeta PLUS, con un poco de aire.
+     El ancho de la tarjeta en % de la sección cambia con el viewport (la
+     sección es full-bleed y .wrap está topado a --maxw), así que la caja
+     objetivo se reconstruye con la misma geometría del grid en vez de con
+     porcentajes fijos. Vertical sí va en %: ahí el alto sí es estable. */
+  --wrap-w:min(var(--maxw),100%);
+  --col-w:calc((var(--wrap-w) - 48px - 44px) / 3); /* 48px padding, 2 gaps de 22 */
+  --card-x:calc((100% - var(--wrap-w)) / 2 + 24px);
+  --card-air:26px;                                  /* aire entre marco y tarjeta */
+
+  /* La destacada va con scale(1.045), así que crece .0225 por lado. */
+  --target-x:calc(var(--card-x) - var(--col-w) * .0225 - var(--card-air));
+  --target-w:calc(var(--col-w) * 1.045 + var(--card-air) * 2);
+  --target-y:33.9%;
+  --target-h:59.1%;
+}
+/* Para enmarcar la tarjeta del centro en vez de la destacada:
+   --target-x:calc(var(--card-x) + var(--col-w) + 22px - var(--card-air));
+   --target-w:calc(var(--col-w) + var(--card-air) * 2); */
+#servicios .section-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;pointer-events:none;border:0;
+  /* Móvil y tablet: el recuadro del clip (24%/51% de su propio ancho y alto)
+     se alinea con el centro de la sección. Las tarjetas van apiladas, así que
+     no hay una a la que enmarcar: sólo se centra. */
+  object-position:24% 51%;
+  opacity:0;transition:opacity .9s ease;
+}
+/* Desde 980px las tarjetas van en 3 columnas y el recuadro sí puede enmarcar
+   una. Escalamos y desplazamos el clip para que su recuadro caiga justo sobre
+   la tarjeta destacada: ancho = objetivo ÷ fracción que ocupa dentro del video,
+   y el origen se corre hacia atrás por el margen que el recuadro trae. */
+@media(min-width:980px){
+  #servicios .section-video{
+    inset:auto;
+    width:calc(var(--target-w) / var(--frame-w));
+    height:calc(var(--target-h) / var(--frame-h));
+    left:calc(var(--target-x) - (var(--target-w) / var(--frame-w)) * var(--frame-x));
+    top:calc(var(--target-y) - (var(--target-h) / var(--frame-h)) * var(--frame-y));
+    object-fit:fill;
+    object-position:50% 50%;
+  }
+}
+#servicios .section-video.ready{opacity:1}
+/* Velo: el clip es claro, así que basta un lavado suave para que el titular
+   y el texto secundario mantengan contraste AA sobre las zonas doradas. */
+#servicios::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.62) 45%,rgba(255,255,255,.85));
+}
+#servicios .wrap{position:relative;z-index:2}
+/* Sin movimiento: se cae el video y vuelve la trama de puntos original. */
+@media(prefers-reduced-motion:reduce){
+  #servicios .section-video,#servicios::after{display:none}
+  #servicios{background-image:radial-gradient(var(--blue-100) 1px,transparent 1px);background-size:26px 26px}
+}
+
 /* ============ BUTTONS ============ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -439,13 +511,16 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 /* ============ TESTIMONIOS ============ */
 .testi-sec{background:var(--bg)}
-.testi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;position:relative;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.testi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;position:relative;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
 .testi:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .testi .quote{font-family:'Poppins';font-size:2.6rem;line-height:1;color:var(--blue-200);margin-bottom:4px}
-.testi .badge{position:absolute;top:20px;right:20px;font-size:.66rem;font-weight:700;color:#9a7400;background:#FFF6DC;padding:4px 10px;border-radius:100px}
 .testi p.t{font-size:1rem;color:var(--blue-800);margin-bottom:20px}
-.testi .who{display:flex;align-items:center;gap:12px}
-.testi .av{width:46px;height:46px;border-radius:50%;background:var(--grad-soft);flex:none}
+/* .who se ancla abajo para que las fichas de una misma fila alineen su pie */
+.testi .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.testi .av{
+  width:46px;height:46px;border-radius:50%;background:var(--grad-soft);flex:none;
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:.86rem;letter-spacing:.03em;
+}
 .testi .who b{display:block;color:var(--blue-900);font-size:.95rem}
 .testi .who span{color:var(--slate);font-size:.84rem}
 .testi .stars{margin-bottom:12px}
@@ -748,8 +823,20 @@ body.has-sticky .to-top{bottom:86px}
   color:#fff;background-color:#0033A0;
   background-image:radial-gradient(1100px 700px at 80% -5%,#1747C4,transparent 60%),linear-gradient(160deg,#0A3AAE,#001A6B);
 }
+/* Video de fondo del hero. Va al fondo de todo: por encima del degradado de
+   marca, por debajo del velo, de la foto de Mar y del texto. Nace en opacity 0
+   y entra cuando el video puede reproducirse, para que nunca haya un salto
+   negro ni se retrase el pintado del titular. */
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;pointer-events:none;border:0;
+  opacity:0;transition:opacity .9s ease;
+}
+.hero-video.ready{opacity:.5}
+@media(prefers-reduced-motion:reduce){ .hero-video{display:none} }
+
 .hero::before,.vsl-hero::before{
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
     radial-gradient(900px 500px at 85% -5%,rgba(255,255,255,.16),transparent 60%),
     radial-gradient(700px 600px at 5% 15%,rgba(255,255,255,.08),transparent 60%);

@@ -112,6 +112,23 @@
  ]
 }
 </script>
+
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '25336372275973357');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=25336372275973357&ev=PageView&noscript=1" /></noscript>
+
 </head>
 <body class="has-hero">
 
@@ -123,7 +140,7 @@
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Proceso</a>
-      <a href="#calculadora">Calculadora</a>
+      <a href="calculadora.html">Cotizador</a>
       <a href="#faq">Preguntas</a>
     </nav>
     <a href="https://wa.me/525561307667?text=Hola%20Mar%2C%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20financiera" target="_blank" rel="noopener" class="btn btn-primary nav-cta"><span class="cta-full">Agenda tu asesoría</span><span class="cta-short">Agenda</span></a>
@@ -132,6 +149,10 @@
 
 <!-- ======================= HERO ======================= -->
 <section class="hero" id="top">
+  <!-- Fondo animado. Sin src: lo pone js/main.js sólo si la conexión aguanta,
+       para que no compita con el LCP del titular en 4G. -->
+  <video class="hero-video" data-bg-video="assets/hero-bg.mp4"
+         muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-orb o1"></div>
   <div class="hero-orb o2"></div>
   <div class="wrap">
@@ -216,6 +237,9 @@
 
 <!-- ======================= SERVICIOS / QUÉ HAGO ======================= -->
 <section class="section-pad dotgrid" id="servicios">
+  <!-- Fondo animado, exclusivo de esta sección. Sin src: lo pone js/main.js. -->
+  <video class="section-video" data-bg-video="assets/servicios-bg.mp4"
+         muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
   <div class="wrap">
     <div class="shead">
       <span class="eyebrow reveal"><span class="dot"></span> Qué hago por ti</span>
@@ -361,6 +385,26 @@
         <a href="#contacto" class="btn btn-primary btn-block">Quiero esta estrategia</a>
       </div>
     </div>
+
+    <!-- Puente al cotizador completo: esta calculadora es la versión rápida;
+         calculadora.html es la que entrega la cotización formal en PDF. -->
+    <div class="webinar reveal-scale" style="margin-top:44px">
+      <div>
+        <span class="eyebrow on-dark"><span class="dot"></span> Cotizador de retiro · Gratis</span>
+        <h2>¿Quieres tu cotización formal en PDF?</h2>
+        <p>Ve más allá del estimado rápido: define cuánto quieres recibir al mes al retirarte, integra tu AFORE, ajusta plazo y beneficio fiscal, y descarga tu cotización personalizada con el desglose año por año.</p>
+        <div class="wfeat">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Toma 2 minutos</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Incluye tu AFORE</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Cotización en PDF</span>
+        </div>
+      </div>
+      <div class="wbtn">
+        <a href="calculadora.html" class="btn btn-white btn-block btn-lg">Abrir el cotizador
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -413,19 +457,23 @@
 </section>
 
 <!-- ======================= TESTIMONIOS ======================= -->
-<section class="section-pad testi-sec">
+<section class="section-pad testi-sec" id="testimonios">
   <div class="wrap">
     <div class="shead">
       <span class="eyebrow reveal"><span class="dot"></span> Historias de confianza</span>
       <h2 class="title reveal d1">Lo que dicen mis clientes</h2>
       <p class="lead reveal d2">Personas que hoy toman mejores decisiones financieras con claridad y tranquilidad.</p>
     </div>
-    <div class="grid cols-3">
-      <div class="testi reveal"><span class="badge">Ejemplo</span><div class="quote">"</div><div class="stars">★★★★★</div><p class="t">Empecé sin saber nada de inversiones y hoy tengo una estrategia clara para mi retiro. Todo explicado en palabras que entiendo.</p><div class="who"><div class="av"></div><div><b>Nombre del cliente</b><span>Ciudad de México</span></div></div></div>
-      <div class="testi reveal d1"><span class="badge">Ejemplo</span><div class="quote">"</div><div class="stars">★★★★★</div><p class="t">Lo que más valoro es el acompañamiento. No me vendió un producto, me ayudó a construir un plan a mi medida.</p><div class="who"><div class="av"></div><div><b>Nombre del cliente</b><span>Monterrey</span></div></div></div>
-      <div class="testi reveal d2"><span class="badge">Ejemplo</span><div class="quote">"</div><div class="stars">★★★★★</div><p class="t">Descubrí que podía deducir impuestos mientras ahorraba para mi futuro. Ojalá lo hubiera empezado antes.</p><div class="who"><div class="av"></div><div><b>Nombre del cliente</b><span>Guadalajara</span></div></div></div>
+    <div class="grid cols-3 testi-grid">
+      <div class="testi reveal"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">La claridad con la que se expresa.</p><div class="who"><div class="av" aria-hidden="true">AN</div><div><b>Anakaren</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal d1"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">Resuelve dudas y brinda la mejor opción con respecto a las necesidades.</p><div class="who"><div class="av" aria-hidden="true">JO</div><div><b>Johana</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal d2"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">La atención y solución a mis dudas en todo momento.</p><div class="who"><div class="av" aria-hidden="true">JU</div><div><b>Juan</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">Su amabilidad y solución, me creó un plan a la medida.</p><div class="who"><div class="av" aria-hidden="true">AL</div><div><b>Alejandra</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal d1"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">Su atención y la manera en que me explica todo para encontrar una estrategia ideal para mí.</p><div class="who"><div class="av" aria-hidden="true">DA</div><div><b>Dafne</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal d2"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">Su atención, claridad y disposición para responder dudas y dar sugerencias.</p><div class="who"><div class="av" aria-hidden="true">RE</div><div><b>Rene</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">La atención y rapidez.</p><div class="who"><div class="av" aria-hidden="true">FR</div><div><b>Francisco</b><span>Cliente</span></div></div></div>
+      <div class="testi reveal d1"><div class="quote" aria-hidden="true">“</div><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="t">Honestidad.</p><div class="who"><div class="av" aria-hidden="true">JU</div><div><b>Juan</b><span>Cliente</span></div></div></div>
     </div>
-    <p class="center" style="font-size:.82rem;color:var(--slate);margin-top:26px">Testimonios de ejemplo — se reemplazarán por testimonios reales aprobados por el cliente.</p>
   </div>
 </section>
 
@@ -596,6 +644,7 @@
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#proceso">Proceso</a></li>
           <li><a href="#calculadora">Calculadora</a></li>
+          <li><a href="calculadora.html">Cotizador de retiro</a></li>
           <li><a href="#webinar">Webinar PLUS</a></li>
           <li><a href="#faq">Preguntas frecuentes</a></li>
         </ul>
